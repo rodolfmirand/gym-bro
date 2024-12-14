@@ -1,7 +1,13 @@
 import { Module } from '@nestjs/common';
-import { PersonModule } from './modules/person.modules';
+import { PersonModule } from './modules/person.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [PersonModule],
+  imports: [PersonModule, TypeOrmModule.forRoot({
+    "database": "./database.sql",
+    "type": "sqlite",
+    "synchronize": true,
+    "entities": ["dist/**/*.model.js"]
+  })],
 })
-export class AppModule {}
+export class AppModule { }
