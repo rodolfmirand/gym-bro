@@ -9,10 +9,8 @@ export class PersonFindAllController {
     constructor(@InjectRepository(PersonModel) private model: Repository<PersonModel>) { }
 
     @Get()
-    public async findAll(): Promise<{data: PersonModel[]}> {
+    public async findAll(): Promise<PersonModel[]> {
         const list = await this.model.find();
-        return {
-            data: list
-        }
+        return list
     }
 }
