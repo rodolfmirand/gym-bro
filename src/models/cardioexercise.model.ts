@@ -1,16 +1,13 @@
 import { Exercise } from "./abstract/exercise.abstract";
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
-import { ExerciseType } from './enum/exercisetype.enum';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { CardioExerciseEnum } from "./enum/cardioexercise.enum";
 
+@Entity()
 export class CardioExercise extends Exercise {
 
     @PrimaryGeneratedColumn()
-    private id: number
+    id: number
     
-    @Column()
-    type: ExerciseType.CARDIO
-
     @Column()
     cardioExercise: CardioExerciseEnum
 
