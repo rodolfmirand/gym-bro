@@ -8,7 +8,7 @@ export class PersonFindController {
 
     constructor(@InjectRepository(PersonModel) private model: Repository<PersonModel>) { }
 
-    @Get(':id')
+    @Get('/:id')
     public async find(@Param('id') id: string): Promise<PersonModel> {
         const person = await this.model.findOne({ where: { id } });
         if (!person)

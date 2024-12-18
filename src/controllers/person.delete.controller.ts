@@ -8,13 +8,13 @@ export class PersonDeleteController {
 
     constructor(@InjectRepository(PersonModel) private model: Repository<PersonModel>) { }
 
-    @Delete(':id')
+    @Delete('/:id')
     public async delete(@Param('id') id: string): Promise<string> {
         const person = await this.model.findOne({ where: { id } });
         if (!person)
             throw new NotFoundException('Person not found');
 
-        await this.model.delete({ id });
+        await this.model.delete(id);
         return 'Person deleted successfully'
     }
 }
