@@ -1,10 +1,9 @@
-import { Uuid } from 'src/utils/uuid.utils'
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
 export class PersonModel {
 
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn('uuid')
     private id: string
 
     @Column({ length: 100 })
@@ -16,7 +15,4 @@ export class PersonModel {
     @Column({ length: 16 })
     private password: string
 
-    constructor() {
-        this.id = Uuid.randomGenerator().getValue()
-    }
 }

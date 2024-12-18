@@ -1,12 +1,11 @@
 import { Exercise } from "./abstract/exercise.abstract";
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { CardioExerciseEnum } from "./enum/cardioexercise.enum";
-import { Uuid } from "src/utils/uuid.utils";
 
 @Entity()
 export class CardioExercise extends Exercise {
 
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn('uuid')
     id: string
 
     @Column()
@@ -24,13 +23,4 @@ export class CardioExercise extends Exercise {
     @Column({ length: 200 })
     videoUrl: string
 
-    constructor(cardioExercise: CardioExerciseEnum, description: string, equipment: string, time: string, videoUrl: string) {
-        super()
-        this.id = Uuid.randomGenerator().getValue()
-        this.cardioExercise = cardioExercise
-        this.description = description
-        this.equipment = equipment
-        this.time = time
-        this.videoUrl = videoUrl
-    }
 }
