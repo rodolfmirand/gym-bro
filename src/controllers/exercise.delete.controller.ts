@@ -1,4 +1,4 @@
-import { Controller, Delete, NotFoundException, Param, ParseIntPipe } from "@nestjs/common";
+import { Controller, Delete, NotFoundException, Param } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
@@ -11,7 +11,7 @@ export class ExerciseDeleteController {
         @InjectRepository(CardioExercise) private cardioModel: Repository<CardioExercise>) { }
 
     @Delete('/bodybuilding/:id')
-    public async deleteBodybuilding(@Param('id', ParseIntPipe) id: number): Promise<string> {
+    public async deleteBodybuilding(@Param('id') id: string): Promise<string> {
         const exercise = await this.bodyBuildingModel.findOne({ where: { id } });
         if (!exercise)
             throw new NotFoundException('Exercise not found');
@@ -20,7 +20,7 @@ export class ExerciseDeleteController {
     }
 
     @Delete('/cardio/:id')
-    public async deleteCardio(@Param('id', ParseIntPipe) id: number): Promise<string> {
+    public async deleteCardio(@Param('id') id: string): Promise<string> {
         const exercise = await this.cardioModel.findOne({ where: { id } });
         if (!exercise)
             throw new NotFoundException('Exercise not found');
