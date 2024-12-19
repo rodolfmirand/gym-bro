@@ -1,18 +1,14 @@
-import { Controller, Get, NotFoundException, Param } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { PersonModel } from "src/models/person.model";
-import { Repository } from "typeorm";
+import { Controller, Get, Param } from "@nestjs/common";
+import { Person } from "src/models/person.model";
+import { PersonFindService } from "src/services/person.find.service";
 
 @Controller('/person')
 export class PersonFindController {
 
-    constructor(@InjectRepository(PersonModel) private model: Repository<PersonModel>) { }
+    constructor(private readonly service: PersonFindService) { }
 
     @Get('/:id')
-    public async find(@Param('id') id: string): Promise<PersonModel> {
-        const person = await this.model.findOne({ where: { id } });
-        if (!person)
-            throw new NotFoundException('Person not found');
-        return person
+    public async find(@Param('id') id: string): Promise<Person> {
+        return this.service.find(id)
     }
 }

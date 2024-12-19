@@ -1,16 +1,14 @@
 import { Controller, Get } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { PersonModel } from "src/models/person.model";
-import { Repository } from "typeorm";
+import { Person } from "src/models/person.model";
+import { PersonFindAllService } from "src/services/person.findAll.service";
 
 @Controller('/person')
 export class PersonFindAllController {
 
-    constructor(@InjectRepository(PersonModel) private model: Repository<PersonModel>) { }
+    constructor(private readonly service: PersonFindAllService) { }
 
     @Get()
-    public async findAll(): Promise<PersonModel[]> {
-        const list = await this.model.find();
-        return list
+    public async findAll(): Promise<Person[]> {
+        return this.service.findAll()
     }
 }

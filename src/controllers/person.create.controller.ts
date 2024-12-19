@@ -1,17 +1,15 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { PersonModel } from "src/models/person.model";
+import { Person } from "src/models/person.model";
 import { PersonSchema } from "src/schemas/person.schema";
+import { PersonCreateService } from "src/services/person.create.service";
 
 @Controller('/person')
 export class PersonCreateController {
 
-    constructor(@InjectRepository(PersonModel) private model: Repository<PersonModel>) { }
+    constructor(private readonly service: PersonCreateService) { }
 
     @Post()
-    public async create(@Body() body: PersonSchema): Promise<PersonModel> {
-        const personCreated = await this.model.save(body);
-        return personCreated
+    public async create(@Body() body: PersonSchema): Promise<Person> {
+        return this.service.create(body)
     }
 }

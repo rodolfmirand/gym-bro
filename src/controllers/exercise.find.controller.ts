@@ -1,28 +1,21 @@
-import { Controller, Get, NotFoundException, Param } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
+import { Controller, Get, Param } from "@nestjs/common";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
-import { Repository } from "typeorm";
+import { BodybuildingFindService } from "src/services/bodybuilding.find.service";
+import { CardioFindService } from "src/services/cardio.find.service";
 
 @Controller('/exercise')
 export class ExerciseFindController {
 
-    constructor(@InjectRepository(BodyBuildingExercise) private bodyBuildingModel: Repository<BodyBuildingExercise>,
-        @InjectRepository(CardioExercise) private cardioModel: Repository<CardioExercise>) { }
+    constructor(private readonly bodybuildingService: BodybuildingFindService, private readonly cardioService: CardioFindService) { }
 
     @Get('/bodybuilding/:id')
     public async findBodybuilding(@Param('id') id: string): Promise<BodyBuildingExercise> {
-        const person = await this.bodyBuildingModel.findOne({ where: { id } });
-        if (!person)
-            throw new NotFoundException('Person not found');
-        return person
+        return this.bodybuildingService.find(id)
     }
 
     @Get('/cardio/:id')
     public async findCardio(@Param('id') id: string): Promise<CardioExercise> {
-        const person = await this.cardioModel.findOne({ where: { id } });
-        if (!person)
-            throw new NotFoundException('Person not found');
-        return person
+        return this.cardioService.find(id)
     }
 }

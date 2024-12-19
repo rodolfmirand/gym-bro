@@ -1,24 +1,21 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
-import { Repository } from 'typeorm';
+import { BodybuildingCreateService } from "src/services/bodybuilding.create.service";
+import { CardioCreateService } from "src/services/cardio.create.service";
 
 @Controller('/exercise')
 export class ExerciseCreateController {
 
-    constructor(@InjectRepository(BodyBuildingExercise) private bodyBuildingModel: Repository<BodyBuildingExercise>,
-        @InjectRepository(CardioExercise) private cardioModel: Repository<CardioExercise>) { }
+    constructor(private readonly bodybuildingService: BodybuildingCreateService, private readonly cardioService: CardioCreateService) { }
 
     @Post('/bodybuilding')
     public async createBodybuilding(@Body() body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
-        const exerciseCreated = await this.bodyBuildingModel.save(body)
-        return exerciseCreated
+        return this.bodybuildingService.create(body)
     }
 
     @Post('/cardio')
     public async createCardio(@Body() body: CardioExercise): Promise<CardioExercise> {
-        const exerciseCreated = await this.cardioModel.save(body)
-        return exerciseCreated
+        return this.cardioService.create(body)
     }
 }

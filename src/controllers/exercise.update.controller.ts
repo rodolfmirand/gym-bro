@@ -1,30 +1,21 @@
-import { Body, Controller, NotFoundException, Param, Put } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
+import { Body, Controller, Param, Put } from "@nestjs/common";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
-import { Repository } from "typeorm";
+import { BodybuildingUpdateService } from "src/services/bodybuilding.update.service";
+import { CardioUpdateService } from "src/services/cardio.update.service";
 
 @Controller('/exercise')
 export class ExerciseUpdateController {
 
-    constructor(@InjectRepository(BodyBuildingExercise) private bodybuildingModel: Repository<BodyBuildingExercise>,
-        @InjectRepository(CardioExercise) private cardioModel: Repository<CardioExercise>) { }
+    constructor(private readonly bodybuildingService: BodybuildingUpdateService, private readonly cardioService: CardioUpdateService) { }
 
     @Put('/bodybuilding/:id')
     public async updateBodybuilding(@Param('id') id: string, @Body() body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
-        const exercise = await this.bodybuildingModel.findOne({ where: { id } })
-        if (!exercise)
-            throw new NotFoundException('Exercise not found')
-        this.bodybuildingModel.update({ id }, body)
-        return this.bodybuildingModel.findOne({ where: { id } })
+        return this.bodybuildingService.update(id, body)
     }
 
     @Put('/cardio/:id')
     public async updateCardio(@Param('id') id: string, @Body() body: CardioExercise): Promise<CardioExercise> {
-        const exercise = await this.cardioModel.findOne({ where: { id } })
-        if (!exercise)
-            throw new NotFoundException('Exercise not found')
-        this.cardioModel.update({ id }, body)
-        return this.cardioModel.findOne({ where: { id } })
+        return this.cardioService.update(id, body)
     }
 }
