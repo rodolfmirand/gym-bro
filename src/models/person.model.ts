@@ -1,7 +1,8 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { WorkoutRoutine } from './workoutroutine.model';
 
 @Entity()
-export class PersonModel {
+export class Person {
 
     @PrimaryGeneratedColumn('uuid')
     private id: string
@@ -15,4 +16,15 @@ export class PersonModel {
     @Column({ length: 16 })
     private password: string
 
+    @Column()
+    private height: number
+
+    @Column()
+    private weight: number
+
+    @Column()
+    private birthDate: Date
+
+    @OneToMany(type => Person, workoutRoutine => WorkoutRoutine)
+    private WorkoutRoutine: WorkoutRoutine[]
 }
