@@ -11,6 +11,9 @@ export class WorkoutRoutine {
     @PrimaryGeneratedColumn('uuid')
     private id: string
 
+    @Column({ length: 50 })
+    private name: string
+
     @ManyToMany(type => DailyRoutine)
     @JoinTable()
     private dailyRoutine: DailyRoutine
@@ -19,6 +22,15 @@ export class WorkoutRoutine {
     private person: Person
 
     @Column()
-    private status: WorkoutRoutineStatus.ACTIVE
+    private status: WorkoutRoutineStatus
+
+    constructor(name: string) {
+        this.name = name
+        this.status = WorkoutRoutineStatus.ACTIVE
+    }
+
+    public getName() {
+        return this.name
+    }
 
 }

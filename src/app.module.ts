@@ -3,6 +3,7 @@ import { PersonModule } from './modules/person.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ExerciseModule } from './modules/exercise.module';
 import * as dotenv from 'dotenv';
+import { WorkoutRoutineModule } from './modules/workoutroutine.module';
 
 dotenv.config();
 
@@ -21,7 +22,7 @@ dotenv.config();
 
 
 @Module({
-  imports: [PersonModule, ExerciseModule, TypeOrmModule.forRoot({
+  imports: [PersonModule, ExerciseModule, WorkoutRoutineModule, TypeOrmModule.forRoot({
     "database": "./database.sql",
     "type": "sqlite",
     "synchronize": true,
