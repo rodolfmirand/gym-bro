@@ -10,7 +10,7 @@ export class WorkoutRoutine {
 
     @ManyToMany(type => DailyRoutine)
     @JoinTable()
-    dailyRoutine: DailyRoutine
+    dailyRoutine: DailyRoutine[]
 
     @OneToOne(type => Person, person => person.workoutRoutine)
     person: Person
