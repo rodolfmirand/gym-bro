@@ -9,7 +9,7 @@ export class PersonFindService {
     constructor(@InjectRepository(Person) private model: Repository<Person>) { }
 
     public async find(id: string): Promise<Person> {
-        const person = await this.model.findOne({ where: { id } })
+        const person = await this.model.findOne({ where: { id }, relations: ['workoutRoutine'] })
         if (!person)
             throw new NotFoundException('Person not found')
         return person
