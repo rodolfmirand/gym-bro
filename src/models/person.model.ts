@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { WorkoutRoutine } from './workoutroutine.model';
 
 @Entity()
@@ -23,12 +23,9 @@ export class Person {
     private weight: number
 
     @Column()
-    private birthDate: Date
+    private birthDate: Date // TODO revisar como salvar corretamente
 
-    @OneToMany(type => Person, workoutRoutine => WorkoutRoutine)
-    private WorkoutRoutine: WorkoutRoutine[]
-
-    public setWorkoutRoutine(workoutRoutine: WorkoutRoutine): void {
-        this.WorkoutRoutine.push(workoutRoutine)
-    }
+    @OneToOne(type => WorkoutRoutine, workoutRoutine => workoutRoutine.person)
+    @JoinColumn()
+    workoutRoutine: WorkoutRoutine
 }
