@@ -5,7 +5,7 @@ import { WorkoutRoutine } from './workoutroutine.model';
 export class Person {
 
     @PrimaryGeneratedColumn('uuid')
-    private id: string
+    id: string
 
     @Column({ length: 100 })
     private name: string
@@ -27,4 +27,8 @@ export class Person {
 
     @OneToMany(type => Person, workoutRoutine => WorkoutRoutine)
     private WorkoutRoutine: WorkoutRoutine[]
+
+    public setWorkoutRoutine(workoutRoutine: WorkoutRoutine): void {
+        this.WorkoutRoutine.push(workoutRoutine)
+    }
 }
