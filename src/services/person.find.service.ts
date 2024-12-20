@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, Body } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from "@nestjs/typeorm";
 import { Person } from "src/models/person.model";
 import { Repository } from "typeorm";
