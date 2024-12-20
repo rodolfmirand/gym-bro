@@ -1,4 +1,4 @@
-import { Module, Injectable } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { PersonCreateController } from "src/controllers/person.create.controller";
 import { PersonDeleteController } from "src/controllers/person.delete.controller";
@@ -15,6 +15,7 @@ import { PersonUpdateService } from 'src/services/person.update.service';
 @Module({
     imports: [TypeOrmModule.forFeature([Person])],
     controllers: [PersonCreateController, PersonDeleteController, PersonFindAllController, PersonFindController, PersonUpdateController],
-    providers: [PersonCreateService, PersonFindService, PersonFindAllService, PersonDeleteService, PersonUpdateService]
+    providers: [PersonCreateService, PersonFindService, PersonFindAllService, PersonDeleteService, PersonUpdateService],
+    exports: [PersonFindService, PersonUpdateService]
 })
 export class PersonModule { }
