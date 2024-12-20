@@ -1,7 +1,4 @@
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { BodyBuildingExercise } from "./bodybuildingexercise.model";
-import { CardioExercise } from "./cardioexercise.model";
-import { WorkoutRoutineStatus } from "./enum/workoutroutinestatus.enum";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Person } from "./person.model";
 import { DailyRoutine } from './dailyroutine.model';
 
@@ -9,28 +6,13 @@ import { DailyRoutine } from './dailyroutine.model';
 export class WorkoutRoutine {
 
     @PrimaryGeneratedColumn('uuid')
-    private id: string
-
-    @Column({ length: 50 })
-    private name: string
+    id: string
 
     @ManyToMany(type => DailyRoutine)
     @JoinTable()
-    private dailyRoutine: DailyRoutine
+    dailyRoutine: DailyRoutine
 
-    @ManyToOne(type => Person, workoutRoutine => WorkoutRoutine)
-    private person: Person
-
-    @Column()
-    private status: WorkoutRoutineStatus
-
-    constructor(name: string) {
-        this.name = name
-        this.status = WorkoutRoutineStatus.ACTIVE
-    }
-
-    public getName() {
-        return this.name
-    }
+    @OneToOne(type => Person, person => person.workoutRoutine)
+    person: Person
 
 }
