@@ -8,7 +8,7 @@ export class WorkoutRoutineFindAllController {
     constructor(private readonly service: WorkoutRoutineFindAllService) { }
 
     @Get()
-    public async findall(@Body() body: WorkoutRoutine): Promise<WorkoutRoutine[]> {
+    public async findall(): Promise<WorkoutRoutine[]> {
         return this.service.findAll()
     }
 
