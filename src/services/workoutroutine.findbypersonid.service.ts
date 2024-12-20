@@ -1,17 +1,17 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
 import { WorkoutRoutine } from "src/models/workoutroutine.model";
-import { Repository } from "typeorm";
+import { PersonFindService } from "./person.find.service";
 
 @Injectable()
 export class WorkoutRoutineFindByPersonIdService {
 
-    constructor(@InjectRepository(WorkoutRoutine) private model: Repository<WorkoutRoutine>) { }
+    constructor(private readonly personFindService: PersonFindService) { }
 
     public async findByPersonId(id: string): Promise<WorkoutRoutine> {
-        const workout = await this.model.findOne({ where: { person: { id: id } }, relations: ['person'] })
+        const person = await this.personFindService.find(id)
+        const workout = person.workoutRoutine
         if (!workout)
-            throw new NotFoundException('Workout Routine not found')
+            throw new NotFoundException('Workout Routine not created yet')
         return workout
     }
 }
