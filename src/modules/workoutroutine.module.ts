@@ -10,11 +10,14 @@ import { WorkoutRoutineFindByPersonIdService } from "src/services/workoutroutine
 import { WorkoutRoutineFindByPersonIdController } from "src/controllers/workoutroutine.findbypersonid.controller";
 import { WorkoutRoutineAddDailyRoutineService } from "src/services/workoutroutine.adddailyroutine.service";
 import { WorkoutRoutineUpdateService } from "src/services/workoutroutine.update.service";
+import { DailyRoutineModule } from "./dailyroutine.module";
+import { WorkoutRoutineFindService } from "src/services/workoutroutine.find.service";
 
 @Module({
     imports: [TypeOrmModule.forFeature([WorkoutRoutine]), PersonModule],
     controllers: [WorkoutRoutineCreateController, WorkoutRoutineFindAllController, WorkoutRoutineFindByPersonIdController],
-    providers: [WorkoutRoutineCreateService, WorkoutRoutineFindAllService, WorkoutRoutineFindByPersonIdService, WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService],
-    exports: [WorkoutRoutineFindByPersonIdService, WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService]
+    providers: [WorkoutRoutineCreateService, WorkoutRoutineFindAllService, WorkoutRoutineFindByPersonIdService,
+        WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService, WorkoutRoutineFindService],
+    exports: [WorkoutRoutineFindByPersonIdService, WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService, WorkoutRoutineFindService]
 })
 export class WorkoutRoutineModule { }
