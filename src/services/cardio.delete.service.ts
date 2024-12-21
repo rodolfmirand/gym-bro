@@ -8,7 +8,7 @@ export class CardioDeleteService {
 
     constructor(@InjectRepository(CardioExercise) private model: Repository<CardioExercise>) { }
 
-    public async delete(id: string) {
+    public async delete(id: string): Promise<string> {
         if (!await this.model.findOne({ where: { id } }))
             throw new NotFoundException('Exercise not found')
         this.model.delete(id)
