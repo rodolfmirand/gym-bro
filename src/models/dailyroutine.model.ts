@@ -3,7 +3,6 @@ import { CardioExercise } from "./cardioexercise.model";
 import { BodyBuildingExercise } from "./bodybuildingexercise.model";
 
 @Entity()
-@Unique(["name"])
 export class DailyRoutine {
 
     @PrimaryGeneratedColumn('uuid')
@@ -18,7 +17,7 @@ export class DailyRoutine {
 
     @ManyToMany(type => BodyBuildingExercise)
     @JoinTable()
-    bodybuildingExercises: CardioExercise[]
+    bodybuildingExercises: BodyBuildingExercise[]
 
     constructor(name: string) {
         this.name = name
