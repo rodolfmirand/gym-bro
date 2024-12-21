@@ -9,7 +9,7 @@ export class DailyRoutineFindAllService {
     constructor(@InjectRepository(DailyRoutine) private model: Repository<DailyRoutine>) { }
 
     public async findAll(): Promise<DailyRoutine[]> {
-        return this.model.find()
+        return this.model.find({ relations: ['cardioExercises'] })
     }
 
 }
