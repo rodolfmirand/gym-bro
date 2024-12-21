@@ -10,8 +10,7 @@ export class WorkoutRoutineUpdateService {
     constructor(@InjectRepository(WorkoutRoutine) private model: Repository<WorkoutRoutine>,
         private readonly workoutFindByPersonIdService: WorkoutRoutineFindByPersonIdService) { }
 
-    public async update(id: string, workout: WorkoutRoutine): Promise<WorkoutRoutine> {
-        if (this.workoutFindByPersonIdService.findByPersonId(id))
-            return this.model.save(workout)
+    public async update(workout: WorkoutRoutine): Promise<WorkoutRoutine> {
+        return this.model.save(workout)
     }
 }
