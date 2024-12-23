@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { CardioExercise } from "src/models/cardioexercise.model";
 import { CardioCreateService } from "./cardio.create.service";
-import { WorkoutRoutineUpdateService } from "./workoutroutine.update.service";
 import { DailyRoutineFindByWorkoutIdService } from "./dailyroutine.findbyworkoutid.service";
 import { DailyRoutineUpdateService } from "./dailyroutine.update.service";
 
@@ -11,7 +10,6 @@ export class DailyRoutineAddCardioService {
 
     constructor(private readonly dailyRoutineFindByWorkoutId: DailyRoutineFindByWorkoutIdService,
         private readonly cardioCreateService: CardioCreateService,
-        private readonly workoutUpdateService: WorkoutRoutineUpdateService,
         private readonly dailyRoutineUpdateService: DailyRoutineUpdateService) { }
 
     public async add(id: string, idDay: string, body: CardioExercise) {
