@@ -8,7 +8,7 @@ export class BodyBuildingExercise extends Exercise {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column({ length: 100 })
+    @Column({ length: 100, unique: true })
     name: string
 
     @Column({ length: 200 })
@@ -29,6 +29,6 @@ export class BodyBuildingExercise extends Exercise {
     @Column()
     rest: string
 
-    @Column({ length: 200 })
+    @Column()
     videoUrl: string
 }
