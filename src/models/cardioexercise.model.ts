@@ -20,7 +20,7 @@ export class CardioExercise extends Exercise {
     @Column()
     time: string
 
-    @Column({ length: 200 })
+    @Column()
     videoUrl: string
 
 }
