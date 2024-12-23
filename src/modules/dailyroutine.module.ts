@@ -11,12 +11,14 @@ import { ExerciseModule } from "./exercise.module";
 import { DailyRoutineAddCardioService } from "src/services/dailyroutine.addcardio.service";
 import { DailyRoutineFindByWorkoutIdService } from "src/services/dailyroutine.findbyworkoutid.service";
 import { DailyRoutineAddCardioController } from "src/controllers/dailyroutine.addcardio.controller";
+import { DailyRoutineAddBodybuildingService } from "src/services/dailyroutine.addbodybuilding.service";
+import { DailyRoutineAddBodybuildingController } from "src/controllers/dailyroutine.addbodybuilding.controller";
 
 @Module({
     imports: [TypeOrmModule.forFeature([DailyRoutine]), ExerciseModule, WorkoutRoutineModule],
-    controllers: [DailyRoutineCreateController, DailyRoutineFindAllController, DailyRoutineAddCardioController],
+    controllers: [DailyRoutineCreateController, DailyRoutineFindAllController, DailyRoutineAddCardioController, DailyRoutineAddBodybuildingController],
     providers: [DailyRoutineCreateService, DailyRoutineFindAllService, DailyRoutineUpdateService, DailyRoutineAddCardioService, DailyRoutineUpdateService,
-        DailyRoutineFindByWorkoutIdService
+        DailyRoutineFindByWorkoutIdService, DailyRoutineAddBodybuildingService
     ],
     exports: [DailyRoutineUpdateService, DailyRoutineFindByWorkoutIdService]
 })
