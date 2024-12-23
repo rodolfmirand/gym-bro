@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { forwardRef, Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { DailyRoutineCreateController } from "src/controllers/dailyroutine.create.controller";
 import { DailyRoutine } from "src/models/dailyroutine.model";
@@ -15,11 +15,11 @@ import { DailyRoutineAddBodybuildingService } from "src/services/dailyroutine.ad
 import { DailyRoutineAddBodybuildingController } from "src/controllers/dailyroutine.addbodybuilding.controller";
 
 @Module({
-    imports: [TypeOrmModule.forFeature([DailyRoutine]), ExerciseModule, WorkoutRoutineModule],
+    imports: [TypeOrmModule.forFeature([DailyRoutine]), ExerciseModule, forwardRef(() => WorkoutRoutineModule)],
     controllers: [DailyRoutineCreateController, DailyRoutineFindAllController, DailyRoutineAddCardioController, DailyRoutineAddBodybuildingController],
     providers: [DailyRoutineCreateService, DailyRoutineFindAllService, DailyRoutineUpdateService, DailyRoutineAddCardioService, DailyRoutineUpdateService,
         DailyRoutineFindByWorkoutIdService, DailyRoutineAddBodybuildingService
     ],
-    exports: [DailyRoutineUpdateService, DailyRoutineFindByWorkoutIdService]
+    exports: [DailyRoutineCreateService, DailyRoutineUpdateService, DailyRoutineFindByWorkoutIdService]
 })
 export class DailyRoutineModule { }
