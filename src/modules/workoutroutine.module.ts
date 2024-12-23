@@ -1,6 +1,5 @@
-import { Module } from "@nestjs/common";
+import { forwardRef, Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { WorkoutRoutineCreateController } from "src/controllers/workoutroutine.create.controller";
 import { WorkoutRoutineFindAllController } from "src/controllers/workoutroutine.findall.controller";
 import { WorkoutRoutine } from "src/models/workoutroutine.model";
 import { PersonModule } from "./person.module";
@@ -10,14 +9,13 @@ import { WorkoutRoutineFindByPersonIdService } from "src/services/workoutroutine
 import { WorkoutRoutineFindByPersonIdController } from "src/controllers/workoutroutine.findbypersonid.controller";
 import { WorkoutRoutineAddDailyRoutineService } from "src/services/workoutroutine.adddailyroutine.service";
 import { WorkoutRoutineUpdateService } from "src/services/workoutroutine.update.service";
-import { DailyRoutineModule } from "./dailyroutine.module";
 import { WorkoutRoutineFindService } from "src/services/workoutroutine.find.service";
 
 @Module({
-    imports: [TypeOrmModule.forFeature([WorkoutRoutine]), PersonModule],
-    controllers: [WorkoutRoutineCreateController, WorkoutRoutineFindAllController, WorkoutRoutineFindByPersonIdController],
+    imports: [TypeOrmModule.forFeature([WorkoutRoutine]), forwardRef(() => PersonModule)],
+    controllers: [WorkoutRoutineFindAllController, WorkoutRoutineFindByPersonIdController],
     providers: [WorkoutRoutineCreateService, WorkoutRoutineFindAllService, WorkoutRoutineFindByPersonIdService,
         WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService, WorkoutRoutineFindService],
-    exports: [WorkoutRoutineFindByPersonIdService, WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService, WorkoutRoutineFindService]
+    exports: [WorkoutRoutineCreateService, WorkoutRoutineFindByPersonIdService, WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService, WorkoutRoutineFindService]
 })
 export class WorkoutRoutineModule { }
