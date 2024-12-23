@@ -26,6 +26,6 @@ import { CardioUpdateService } from "src/services/cardio.update.service";
     providers: [CardioCreateService, CardioFindService, CardioFindAllService, CardioUpdateService, CardioDeleteService,
         BodybuildingCreateService, BodybuildingFindService, BodybuildingFindAllService, BodybuildingUpdateService, BodyBuildingDeleteService
     ],
-    exports: [CardioCreateService, CardioFindService, CardioUpdateService]
+    exports: [CardioCreateService, CardioFindService, CardioUpdateService, BodybuildingCreateService, BodybuildingFindService, BodybuildingUpdateService]
 })
 export class ExerciseModule { }
