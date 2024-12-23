@@ -11,9 +11,10 @@ import { PersonDeleteService } from 'src/services/person.delete.service';
 import { PersonFindService } from 'src/services/person.find.service';
 import { PersonFindAllService } from 'src/services/person.findAll.service';
 import { PersonUpdateService } from 'src/services/person.update.service';
+import { WorkoutRoutineModule } from './workoutroutine.module';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Person])],
+    imports: [TypeOrmModule.forFeature([Person]), WorkoutRoutineModule],
     controllers: [PersonCreateController, PersonDeleteController, PersonFindAllController, PersonFindController, PersonUpdateController],
     providers: [PersonCreateService, PersonFindService, PersonFindAllService, PersonDeleteService, PersonUpdateService],
     exports: [PersonFindService, PersonUpdateService]
