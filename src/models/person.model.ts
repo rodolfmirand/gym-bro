@@ -8,22 +8,22 @@ export class Person {
     id: string
 
     @Column({ length: 100 })
-    private name: string
+    name: string
 
     @Column({ length: 100 })
-    private email: string
+    email: string
 
     @Column({ length: 16 })
-    private password: string
+    password: string
 
     @Column()
-    private height: number
+    height: number
 
     @Column()
-    private weight: number
+    weight: number
 
     @Column()
-    private birthDate: Date // TODO revisar como salvar corretamente
+    birthDate: string
 
     @OneToOne(type => WorkoutRoutine, workoutRoutine => workoutRoutine.person)
     @JoinColumn()
