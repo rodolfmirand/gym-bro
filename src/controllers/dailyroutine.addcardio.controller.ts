@@ -7,7 +7,7 @@ export class DailyRoutineAddCardioController {
 
     constructor(private readonly service: DailyRoutineAddCardioService) { }
 
-    @Post('/:id/:idDay')
+    @Post('cardio/:id/:idDay')
     public async add(@Param('id') id: string, @Param('idDay') idDay: string, @Body() body: CardioExercise): Promise<CardioExercise> {
         return this.service.add(id, idDay, body)
     }
