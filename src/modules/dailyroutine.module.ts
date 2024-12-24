@@ -8,17 +8,27 @@ import { DailyRoutineFindAllController } from "src/controllers/dailyroutine.find
 import { DailyRoutineFindAllService } from "src/services/dailyroutine.findall.service";
 import { DailyRoutineUpdateService } from "src/services/dailyroutine.update.service";
 import { ExerciseModule } from "./exercise.module";
-import { DailyRoutineAddCardioService } from "src/services/dailyroutine.addcardio.service";
+import { DailyRoutineCreateCardioService } from "src/services/dailyroutine.createcardio.service";
 import { DailyRoutineFindByWorkoutIdService } from "src/services/dailyroutine.findbyworkoutid.service";
+import { DailyRoutineCreateCardioController } from "src/controllers/dailyroutine.createcardio.controller";
+import { DailyRoutineCreateBodybuildingService } from "src/services/dailyroutine.createbodybuilding.service";
+import { DailyRoutineCreateBodybuildingController } from "src/controllers/dailyroutine.createbodybuilding.controller";
+import { DailyRoutineFindService } from "src/services/dailyroutine.find.service";
+import { DailyRoutineAddCardioService } from "src/services/dailyroutine.addcardio.service";
 import { DailyRoutineAddCardioController } from "src/controllers/dailyroutine.addcardio.controller";
 import { DailyRoutineAddBodybuildingService } from "src/services/dailyroutine.addbodybuilding.service";
 import { DailyRoutineAddBodybuildingController } from "src/controllers/dailyroutine.addbodybuilding.controller";
+import { DailyRoutineRemoveCardioService } from "src/services/dailyroutine.removecardio.service";
+import { DailyRoutineRemoveCardioController } from "src/controllers/dailyroutine.removecardio.controller";
 
 @Module({
     imports: [TypeOrmModule.forFeature([DailyRoutine]), ExerciseModule, forwardRef(() => WorkoutRoutineModule)],
-    controllers: [DailyRoutineCreateController, DailyRoutineFindAllController, DailyRoutineAddCardioController, DailyRoutineAddBodybuildingController],
-    providers: [DailyRoutineCreateService, DailyRoutineFindAllService, DailyRoutineUpdateService, DailyRoutineAddCardioService, DailyRoutineUpdateService,
-        DailyRoutineFindByWorkoutIdService, DailyRoutineAddBodybuildingService
+    controllers: [DailyRoutineCreateController, DailyRoutineFindAllController, DailyRoutineCreateBodybuildingController, DailyRoutineCreateCardioController,
+        DailyRoutineAddCardioController, DailyRoutineAddBodybuildingController, DailyRoutineRemoveCardioController
+    ],
+    providers: [DailyRoutineCreateService, DailyRoutineFindAllService, DailyRoutineUpdateService, DailyRoutineCreateCardioService, DailyRoutineUpdateService,
+        DailyRoutineFindByWorkoutIdService, DailyRoutineCreateBodybuildingService, DailyRoutineFindService, DailyRoutineAddCardioService, DailyRoutineAddBodybuildingService,
+        DailyRoutineRemoveCardioService
     ],
     exports: [DailyRoutineCreateService, DailyRoutineUpdateService, DailyRoutineFindByWorkoutIdService]
 })
