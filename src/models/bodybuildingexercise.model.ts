@@ -8,7 +8,7 @@ export class BodyBuildingExercise extends Exercise {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column({ length: 100, unique: true })
+    @Column({ length: 100 })
     name: string
 
     @Column({ length: 200 })
