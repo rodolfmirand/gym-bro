@@ -9,6 +9,9 @@ export class PersonFindAllService {
     constructor(@InjectRepository(Person) private model: Repository<Person>) { }
 
     public async findAll(): Promise<Person[]> {
-        return await this.model.find({ relations: ['workoutRoutine', 'workoutRoutine.dailyRoutine', 'workoutRoutine.dailyRoutine.cardioExercises'] })
+        return await this.model.find({
+            relations: ['workoutRoutine', 'workoutRoutine.dailyRoutine',
+                'workoutRoutine.dailyRoutine.cardioExercises', 'workoutRoutine.dailyRoutine.bodybuildingExercises']
+        })
     }
 }
