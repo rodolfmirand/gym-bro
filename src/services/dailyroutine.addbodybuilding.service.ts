@@ -1,25 +1,25 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { DailyRoutineFindByWorkoutIdService } from "./dailyroutine.findbyworkoutid.service";
+import { DailyRoutineFindService } from "./dailyroutine.find.service";
 import { DailyRoutineUpdateService } from "./dailyroutine.update.service";
-import { BodybuildingCreateService } from "./bodybuilding.create.service";
-import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
-
+import { BodybuildingFindService } from "./bodybuilding.find.service";
 
 @Injectable()
 export class DailyRoutineAddBodybuildingService {
 
-    constructor(private readonly dailyRoutineFindByWorkoutId: DailyRoutineFindByWorkoutIdService,
-        private readonly bodybuildingCreateService: BodybuildingCreateService,
-        private readonly dailyRoutineUpdateService: DailyRoutineUpdateService) { }
+    constructor(private readonly dailyRoutineFindService: DailyRoutineFindService,
+        private readonly dailyRoutineUpdateService: DailyRoutineUpdateService,
+        private readonly bodybuildingFindService: BodybuildingFindService
+    ) { }
 
-    public async add(id: string, idDay: string, body: BodyBuildingExercise) {
-        const dailyRoutine = await this.dailyRoutineFindByWorkoutId.find(id)
-        const bodybuilding = await this.bodybuildingCreateService.create(body)
-        const day = dailyRoutine.find((day) => day.id == idDay)
-        if (!day)
-            throw new NotFoundException('Day not found')
-        day.bodybuildingExercises.push(bodybuilding)
+    public async add(id: string, idBodybuilding: string): Promise<string> {
+        const dailyRoutine = await this.dailyRoutineFindService.find(id)
+        if (!dailyRoutine)
+            throw new NotFoundException('Daily routine not found')
+        const bodybuilding = await this.bodybuildingFindService.find(idBodybuilding)
+        if (!bodybuilding)
+            throw new NotFoundException('Bodybuilding exercise not found')
+        dailyRoutine.bodybuildingExercises.push(bodybuilding)
         await this.dailyRoutineUpdateService.update(dailyRoutine)
-        return bodybuilding
+        return 'Bodybuilding exercise added successfully'
     }
 }
