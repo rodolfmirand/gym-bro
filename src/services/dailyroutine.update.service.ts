@@ -8,7 +8,7 @@ export class DailyRoutineUpdateService {
 
     constructor(@InjectRepository(DailyRoutine) private model: Repository<DailyRoutine>) { }
 
-    public async update(body: DailyRoutine[]): Promise<DailyRoutine[]> {
+    public async update(body: DailyRoutine): Promise<DailyRoutine> {
         return this.model.save(body)
     }
 }
