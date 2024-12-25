@@ -5,6 +5,7 @@ import { ExerciseModule } from './modules/exercise.module';
 import * as dotenv from 'dotenv';
 import { WorkoutRoutineModule } from './modules/workoutroutine.module';
 import { DailyRoutineModule } from './modules/dailyroutine.module';
+import { AuthModule } from './auth/auth.module';
 
 dotenv.config();
 
@@ -23,7 +24,7 @@ dotenv.config();
 
 
 @Module({
-  imports: [PersonModule, ExerciseModule, WorkoutRoutineModule, DailyRoutineModule, TypeOrmModule.forRoot({
+  imports: [AuthModule, PersonModule, ExerciseModule, WorkoutRoutineModule, DailyRoutineModule, TypeOrmModule.forRoot({
     "database": "./database.sql",
     "type": "sqlite",
     "synchronize": true,
