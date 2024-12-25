@@ -10,6 +10,9 @@ export class Person {
     @Column({ length: 100 })
     name: string
 
+    @Column({length: 12})
+    username: string
+
     @Column({ length: 100 })
     email: string
 
