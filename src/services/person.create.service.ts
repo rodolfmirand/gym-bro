@@ -4,8 +4,8 @@ import { Person } from "src/models/person.model";
 import { Repository } from "typeorm";
 import { WorkoutRoutineCreateService } from "./workoutroutine.create.service";
 import { HashPasswordUtility } from "src/utils/hash.password.util";
-import { PersonRequestDTO } from "src/dtos/person.request.dto";
-import { PersonResponseDTO } from "src/dtos/person.response.dto";
+import { PersonRequestDTO } from "src/dtos/request/person.request.dto";
+import { PersonResponseDTO } from "src/dtos/response/person.response.dto";
 import { PersonToPersoResponseDTOUtility } from "src/utils/person.topersonresponse.util";
 
 @Injectable()

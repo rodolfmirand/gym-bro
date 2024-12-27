@@ -1,6 +1,6 @@
 import { Body, Controller, HttpException, HttpStatus, Post } from "@nestjs/common";
-import { PersonRequestDTO } from "src/dtos/person.request.dto";
-import { PersonResponseDTO } from "src/dtos/person.response.dto";
+import { PersonRequestDTO } from "src/dtos/request/person.request.dto";
+import { PersonResponseDTO } from "src/dtos/response/person.response.dto";
 import { PersonCreateService } from "src/services/person.create.service";
 
 @Controller('/person')
