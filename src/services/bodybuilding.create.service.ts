@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { BodybuildingRequestDTO } from "src/dtos/request/bodybuilding.request.dto";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { Repository } from "typeorm";
 
@@ -8,7 +9,7 @@ export class BodybuildingCreateService {
 
     constructor(@InjectRepository(BodyBuildingExercise) private model: Repository<BodyBuildingExercise>) { }
 
-    public async create(body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
+    public async create(body: BodybuildingRequestDTO): Promise<BodyBuildingExercise> {
         return this.model.save(body)
     }
 }

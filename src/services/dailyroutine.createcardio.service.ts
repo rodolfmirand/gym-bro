@@ -3,6 +3,7 @@ import { CardioExercise } from "src/models/cardioexercise.model";
 import { CardioCreateService } from "./cardio.create.service";
 import { DailyRoutineUpdateService } from "./dailyroutine.update.service";
 import { DailyRoutineFindService } from "./dailyroutine.find.service";
+import { CardioRequestDTO } from "src/dtos/request/cardio.request.dto";
 
 
 @Injectable()
@@ -12,7 +13,7 @@ export class DailyRoutineCreateCardioService {
         private readonly dailyRoutineUpdateService: DailyRoutineUpdateService,
         private readonly dailyRoutineFindService: DailyRoutineFindService) { }
 
-    public async add(id: string, body: CardioExercise) {
+    public async add(id: string, body: CardioRequestDTO) {
         const dailyRoutine = await this.dailyRoutineFindService.find(id)
         if (!dailyRoutine)
             throw new NotFoundException('Daily routine not found')
