@@ -13,11 +13,7 @@ export class DailyRoutineAddBodybuildingService {
 
     public async add(id: string, idBodybuilding: string): Promise<string> {
         const dailyRoutine = await this.dailyRoutineFindService.find(id)
-        if (!dailyRoutine)
-            throw new NotFoundException('Daily routine not found')
         const bodybuilding = await this.bodybuildingFindService.find(idBodybuilding)
-        if (!bodybuilding)
-            throw new NotFoundException('Bodybuilding exercise not found')
         dailyRoutine.bodybuildingExercises.push(bodybuilding)
         await this.dailyRoutineUpdateService.update(dailyRoutine)
         return 'Bodybuilding exercise added successfully'

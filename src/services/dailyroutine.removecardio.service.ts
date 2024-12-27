@@ -11,8 +11,6 @@ export class DailyRoutineRemoveCardioService {
 
     public async remove(id: string, idCardio: string): Promise<string> {
         const dailyRoutine = await this.dailyRoutineFindService.find(id)
-        if (!dailyRoutine)
-            throw new NotFoundException('Daily routine not found')
         const cardio = dailyRoutine.cardioExercises.find((cardio) => cardio.id == idCardio)
         if (!cardio)
             throw new NotFoundException('Cardio exercise not found in Daily routine')
