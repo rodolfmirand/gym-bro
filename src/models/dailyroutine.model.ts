@@ -11,11 +11,11 @@ export class DailyRoutine {
     @Column({ length: 10 })
     name: string
 
-    @ManyToMany(type => CardioExercise)
+    @ManyToMany(() => CardioExercise)
     @JoinTable()
     cardioExercises: CardioExercise[]
 
-    @ManyToMany(type => BodyBuildingExercise)
+    @ManyToMany(() => BodyBuildingExercise)
     @JoinTable()
     bodybuildingExercises: BodyBuildingExercise[]
 

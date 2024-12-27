@@ -14,11 +14,13 @@ import { PersonUpdateService } from 'src/services/person.update.service';
 import { WorkoutRoutineModule } from './workoutroutine.module';
 import { PersonFindByUsernameService } from 'src/services/person.findbyusername.service';
 import { HashPasswordUtility } from 'src/utils/hash.password.util';
+import { PersonToPersoResponseDTOUtility } from 'src/utils/person.topersonresponse.util';
 
 @Module({
     imports: [TypeOrmModule.forFeature([Person]), WorkoutRoutineModule],
     controllers: [PersonCreateController, PersonDeleteController, PersonFindAllController, PersonFindController, PersonUpdateController],
-    providers: [PersonCreateService, PersonFindService, PersonFindAllService, PersonDeleteService, PersonUpdateService, PersonFindByUsernameService, HashPasswordUtility],
+    providers: [PersonCreateService, PersonFindService, PersonFindAllService, PersonDeleteService, PersonUpdateService, 
+        PersonFindByUsernameService, HashPasswordUtility, PersonToPersoResponseDTOUtility],
     exports: [PersonFindService, PersonUpdateService, PersonFindByUsernameService]
 })
 export class PersonModule { }
