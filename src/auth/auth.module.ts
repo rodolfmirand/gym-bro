@@ -13,7 +13,7 @@ dotenv.config()
     imports: [
         PassportModule,
         JwtModule.register({
-            secret: 'hello-world',
+            secret: process.env.SECRET_KEY,
             signOptions: { expiresIn: '1h' }
         }), PersonModule
     ],
