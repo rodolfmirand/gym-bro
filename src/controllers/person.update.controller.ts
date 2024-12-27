@@ -3,6 +3,7 @@ import { Person } from "src/models/person.model";
 import { PersonUpdateService } from "src/services/person.update.service";
 import { PersonFindService } from '../services/person.find.service';
 import { AuthGuard } from "src/auth/auth.guard";
+import { PersonUpdateDTO } from "src/dtos/response/person.update.dto";
 
 @Controller('/person')
 export class PersonUpdateController {
@@ -12,7 +13,7 @@ export class PersonUpdateController {
 
     @UseGuards(AuthGuard)
     @Put('/:id')
-    public async update(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: Person): Promise<Person> {
+    public async update(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: PersonUpdateDTO): Promise<PersonUpdateDTO> {
         if (await this.personFindService.find(id))
             return this.personUpdateService.update(body)
     }

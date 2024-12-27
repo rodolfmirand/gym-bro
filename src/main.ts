@@ -10,9 +10,6 @@ async function bootstrap() {
     transform: true,
     whitelist: true,
     forbidNonWhitelisted: true,
-    transformOptions: {
-      excludeExtraneousValues: true
-    }
   }));
   app.useGlobalInterceptors(new TransformInterceptor());
   await app.listen(process.env.PORT ?? 8080);
