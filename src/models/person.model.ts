@@ -10,10 +10,10 @@ export class Person {
     @Column({ length: 100 })
     name: string
 
-    @Column({length: 12})
+    @Column({length: 12, unique: true})
     username: string
 
-    @Column({ length: 100 })
+    @Column({ length: 100, unique: true})
     email: string
 
     @Column({ length: 16 })
@@ -28,7 +28,7 @@ export class Person {
     @Column()
     birthDate: string
 
-    @OneToOne(type => WorkoutRoutine, workoutRoutine => workoutRoutine.person)
+    @OneToOne(() => WorkoutRoutine, workoutRoutine => workoutRoutine.person)
     @JoinColumn()
     workoutRoutine: WorkoutRoutine
 }
