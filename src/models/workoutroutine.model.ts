@@ -8,11 +8,11 @@ export class WorkoutRoutine {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @ManyToMany(type => DailyRoutine)
+    @ManyToMany(() => DailyRoutine)
     @JoinTable()
     dailyRoutine: DailyRoutine[]
 
-    @OneToOne(type => Person, person => person.workoutRoutine)
+    @OneToOne(() => Person, person => person.workoutRoutine)
     person: Person
 
 }

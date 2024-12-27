@@ -16,6 +16,6 @@ export class DailyRoutineRemoveCardioService {
             throw new NotFoundException('Cardio exercise not found in Daily routine')
         dailyRoutine.cardioExercises.splice(dailyRoutine.cardioExercises.indexOf(cardio), 1)
         await this.dailyRoutineUpdateService.update(dailyRoutine)
-        return 'Cardio removed successfully'
+        return 'Cardio exercise removed successfully'
     }
 }
