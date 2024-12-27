@@ -12,7 +12,7 @@ export class WorkoutRoutineCreateService {
 
     constructor(@InjectRepository(WorkoutRoutine) private model: Repository<WorkoutRoutine>,
         private readonly personUpdateService: PersonUpdateService,
-        private readonly dailyCreateService: DailyRoutineCreateService) { }
+        private readonly dailyRoutineCreateService: DailyRoutineCreateService) { }
 
     public async create(person: Person): Promise<WorkoutRoutine> {
         if (person.workoutRoutine != null)
@@ -20,8 +20,8 @@ export class WorkoutRoutineCreateService {
         const workout = new WorkoutRoutine()
         person.workoutRoutine = workout
         await this.model.save(workout)
-        await this.dailyCreateService.create(new DailyRoutine('A'), workout.id)
-        await this.personUpdateService.update(person.id, person)
+        await this.dailyRoutineCreateService.create(new DailyRoutine('A'), workout.id)
+        await this.personUpdateService.update(person)
         return workout
     }
 }
