@@ -1,4 +1,4 @@
-import { Controller, Param, Post, UseGuards } from "@nestjs/common";
+import { Controller, Param, ParseUUIDPipe, Post, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
 import { DailyRoutineAddCardioService } from "src/services/dailyroutine.addcardio.service";
 
@@ -9,7 +9,7 @@ export class DailyRoutineAddCardioController {
 
     @UseGuards(AuthGuard)
     @Post('/cardio/:id/:idCardio')
-    public async add(@Param('id') id: string, @Param('idCardio') idCardio: string): Promise<string> {
+    public async add(@Param('id', new ParseUUIDPipe()) id: string, @Param('idCardio') idCardio: string): Promise<string> {
         return this.service.add(id, idCardio)
     }
 }

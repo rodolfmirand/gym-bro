@@ -1,4 +1,4 @@
-import { Controller, Delete, NotFoundException, Param } from "@nestjs/common";
+import { Controller, Delete, NotFoundException, Param, ParseUUIDPipe } from "@nestjs/common";
 import { PersonDeleteService } from "src/services/person.delete.service";
 import { PersonFindService } from '../services/person.find.service';
 
@@ -9,7 +9,7 @@ export class PersonDeleteController {
         private readonly personDeleteService: PersonDeleteService) { }
     
     @Delete('/:id')
-    public async delete(@Param('id') id: string): Promise<string> {
+    public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<string> {
         const person = await this.personFindService.find(id)
         return this.personDeleteService.delete(person)
     }

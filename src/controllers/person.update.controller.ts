@@ -1,4 +1,4 @@
-import { Body, Controller, NotFoundException, Param, Put, UseGuards } from "@nestjs/common";
+import { Body, Controller, NotFoundException, Param, ParseUUIDPipe, Put, UseGuards } from "@nestjs/common";
 import { Person } from "src/models/person.model";
 import { PersonUpdateService } from "src/services/person.update.service";
 import { PersonFindService } from '../services/person.find.service';
@@ -12,7 +12,7 @@ export class PersonUpdateController {
 
     @UseGuards(AuthGuard)
     @Put('/:id')
-    public async update(@Param('id') id: string, @Body() body: Person): Promise<Person> {
+    public async update(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: Person): Promise<Person> {
         if (await this.personFindService.find(id))
             return this.personUpdateService.update(body)
     }

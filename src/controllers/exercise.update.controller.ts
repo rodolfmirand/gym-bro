@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Put, UseGuards } from "@nestjs/common";
+import { Body, Controller, Param, ParseUUIDPipe, Put, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
@@ -12,13 +12,13 @@ export class ExerciseUpdateController {
 
     @UseGuards(AuthGuard)
     @Put('/bodybuilding/:id')
-    public async updateBodybuilding(@Param('id') id: string, @Body() body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
+    public async updateBodybuilding(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
         return this.bodybuildingService.update(id, body)
     }
 
     @UseGuards(AuthGuard)
     @Put('/cardio/:id')
-    public async updateCardio(@Param('id') id: string, @Body() body: CardioExercise): Promise<CardioExercise> {
+    public async updateCardio(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: CardioExercise): Promise<CardioExercise> {
         return this.cardioService.update(id, body)
     }
 }
