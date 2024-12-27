@@ -1,9 +1,9 @@
-import { Body, Controller, HttpException, HttpStatus, Post } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import { PersonRequestDTO } from "src/dtos/request/person.request.dto";
 import { PersonResponseDTO } from "src/dtos/response/person.response.dto";
 import { PersonCreateService } from "src/services/person.create.service";
 
-@Controller('/person')
+@Controller('person')
 export class PersonCreateController {
 
     constructor(private readonly service: PersonCreateService) { }

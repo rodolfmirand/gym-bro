@@ -4,13 +4,13 @@ import { BodybuildingRequestDTO } from "src/dtos/request/bodybuilding.request.dt
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { DailyRoutineCreateBodybuildingService } from "src/services/dailyroutine.createbodybuilding.service";
 
-@Controller('/daily')
+@Controller('daily')
 export class DailyRoutineCreateBodybuildingController {
 
     constructor(private readonly service: DailyRoutineCreateBodybuildingService) { }
 
     @UseGuards(AuthGuard)
-    @Post('/bodybuilding/:id')
+    @Post('bodybuilding/:id')
     public async add(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: BodybuildingRequestDTO): Promise<BodyBuildingExercise> {
         return this.service.add(id, body)
     }
