@@ -27,6 +27,9 @@ export class BodyBuildingExercise extends Exercise {
     reps: number
 
     @Column()
+    load: number
+
+    @Column()
     rest: string
 
     @Column()

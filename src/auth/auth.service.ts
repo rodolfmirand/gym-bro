@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { PersonFindByUsernameService } from "../services/person.findbyusername.service";
 import * as bcrypt from 'bcrypt';
 import { Person } from "src/models/person.model";
