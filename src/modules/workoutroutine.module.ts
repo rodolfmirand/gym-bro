@@ -7,7 +7,6 @@ import { WorkoutRoutineCreateService } from "src/services/workoutroutine.create.
 import { WorkoutRoutineFindAllService } from "src/services/workoutroutine.findall.service";
 import { WorkoutRoutineFindByPersonIdService } from "src/services/workoutroutine.findbypersonid.service";
 import { WorkoutRoutineFindByPersonIdController } from "src/controllers/workoutroutine.findbypersonid.controller";
-import { WorkoutRoutineAddDailyRoutineService } from "src/services/workoutroutine.adddailyroutine.service";
 import { WorkoutRoutineUpdateService } from "src/services/workoutroutine.update.service";
 import { WorkoutRoutineFindService } from "src/services/workoutroutine.find.service";
 import { DailyRoutineModule } from "./dailyroutine.module";
@@ -16,7 +15,7 @@ import { DailyRoutineModule } from "./dailyroutine.module";
     imports: [TypeOrmModule.forFeature([WorkoutRoutine]), forwardRef(() => PersonModule), DailyRoutineModule],
     controllers: [WorkoutRoutineFindAllController, WorkoutRoutineFindByPersonIdController],
     providers: [WorkoutRoutineCreateService, WorkoutRoutineFindAllService, WorkoutRoutineFindByPersonIdService,
-        WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService, WorkoutRoutineFindService],
-    exports: [WorkoutRoutineCreateService, WorkoutRoutineFindByPersonIdService, WorkoutRoutineAddDailyRoutineService, WorkoutRoutineUpdateService, WorkoutRoutineFindService]
+        WorkoutRoutineUpdateService, WorkoutRoutineFindService],
+    exports: [WorkoutRoutineCreateService, WorkoutRoutineFindByPersonIdService, WorkoutRoutineUpdateService, WorkoutRoutineFindService]
 })
 export class WorkoutRoutineModule { }
