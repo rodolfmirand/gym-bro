@@ -9,6 +9,6 @@ export class WorkoutRoutineUpdateService {
     constructor(@InjectRepository(WorkoutRoutine) private model: Repository<WorkoutRoutine>) { }
 
     public async update(workout: WorkoutRoutine): Promise<WorkoutRoutine> {
-        return this.model.save(workout)
+        return await this.model.save(workout)
     }
 }

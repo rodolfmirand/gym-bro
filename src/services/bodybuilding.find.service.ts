@@ -9,7 +9,7 @@ export class BodybuildingFindService {
     constructor(@InjectRepository(BodyBuildingExercise) private model: Repository<BodyBuildingExercise>) { }
 
     public async find(id: string): Promise<BodyBuildingExercise> {
-        const exercise = this.model.findOne({ where: { id } })
+        const exercise = await this.model.findOne({ where: { id } })
         if (!exercise)
             throw new NotFoundException('Exercise not found')
         return exercise

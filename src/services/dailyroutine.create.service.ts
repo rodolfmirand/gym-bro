@@ -16,7 +16,7 @@ export class DailyRoutineCreateService {
         const workout = await this.workoutFindService.find(id)
         const dailyRoutine = new DailyRoutine(body.name)
         await this.model.save(dailyRoutine)
-        await workout.dailyRoutine.push(dailyRoutine)
+        workout.dailyRoutine.push(dailyRoutine)
         await this.workoutUpdateService.update(workout)
         return dailyRoutine
     }
