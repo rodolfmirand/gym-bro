@@ -10,9 +10,9 @@ export class PersonUpdateService {
 
     constructor(@InjectRepository(Person) private model: Repository<Person>) { }
 
-    public async update(person: Person, body: PersonUpdateDTO): Promise<PersonUpdateDTO> {
+    public async update(person: Person, body: PersonUpdateDTO): Promise<string> {
         person = this.model.merge(person, body)
         await this.model.save(person)
-        return 
+        return 'Person updated successfully'
     }
 }
