@@ -11,13 +11,13 @@ export class ExerciseUpdateController {
     constructor(private readonly bodybuildingService: BodybuildingUpdateService, private readonly cardioService: CardioUpdateService) { }
 
     @UseGuards(AuthGuard)
-    @Put('/bodybuilding/:id')
+    @Put('bodybuilding/:id')
     public async updateBodybuilding(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
         return this.bodybuildingService.update(id, body)
     }
 
     @UseGuards(AuthGuard)
-    @Put('/cardio/:id')
+    @Put('cardio/:id')
     public async updateCardio(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: CardioExercise): Promise<CardioExercise> {
         return this.cardioService.update(id, body)
     }

@@ -2,7 +2,7 @@ import { Body, Controller, Get } from "@nestjs/common";
 import { WorkoutRoutine } from "src/models/workoutroutine.model";
 import { WorkoutRoutineFindAllService } from "src/services/workoutroutine.findall.service";
 
-@Controller('/workout')
+@Controller('workout')
 export class WorkoutRoutineFindAllController {
 
     constructor(private readonly service: WorkoutRoutineFindAllService) { }

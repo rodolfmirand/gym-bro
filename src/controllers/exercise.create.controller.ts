@@ -5,19 +5,19 @@ import { CardioExercise } from "src/models/cardioexercise.model";
 import { BodybuildingCreateService } from "src/services/bodybuilding.create.service";
 import { CardioCreateService } from "src/services/cardio.create.service";
 
-@Controller('/exercise')
+@Controller('exercise')
 export class ExerciseCreateController {
 
     constructor(private readonly bodybuildingService: BodybuildingCreateService, private readonly cardioService: CardioCreateService) { }
 
     @UseGuards(AuthGuard)
-    @Post('/bodybuilding')
+    @Post('bodybuilding')
     public async createBodybuilding(@Body() body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
         return this.bodybuildingService.create(body)
     }
 
     @UseGuards(AuthGuard)
-    @Post('/cardio')
+    @Post('cardio')
     public async createCardio(@Body() body: CardioExercise): Promise<CardioExercise> {
         return this.cardioService.create(body)
     }

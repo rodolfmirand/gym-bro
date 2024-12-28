@@ -3,7 +3,7 @@ import { AuthGuard } from "src/auth/auth.guard";
 import { BodyBuildingDeleteService } from "src/services/bodybuilding.delete.service";
 import { CardioDeleteService } from "src/services/cardio.delete.service";
 
-@Controller('/exercise')
+@Controller('exercise')
 export class ExerciseDeleteController {
 
     constructor(private readonly bodybuildingService: BodyBuildingDeleteService, private readonly cardioService: CardioDeleteService) { }
@@ -15,7 +15,7 @@ export class ExerciseDeleteController {
     }
 
     @UseGuards(AuthGuard)
-    @Delete('/cardio/:id')
+    @Delete('cardio/:id')
     public async deleteCardio(@Param('id', new ParseUUIDPipe()) id: string): Promise<string> {
         return this.cardioService.delete(id)
     }
