@@ -1,4 +1,3 @@
-import { Expose } from "class-transformer"
 import { IsDateString, IsEmail, IsNotEmpty, IsNumber, IsString, MaxLength, MinLength } from "class-validator"
 
 export class PersonRequestDTO {
