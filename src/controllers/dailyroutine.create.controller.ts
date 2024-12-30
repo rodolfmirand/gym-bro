@@ -10,7 +10,7 @@ export class DailyRoutineCreateController {
 
     @UseGuards(AuthGuard)
     @Post(':id')
-    public async create(@Body() body: DailyRoutine, @Param('id') id: string): Promise<DailyRoutine> {
-        return this.service.create(body, id)
+    public async create(@Param('id') id: string): Promise<DailyRoutine> {
+        return this.service.create(id)
     }
 }

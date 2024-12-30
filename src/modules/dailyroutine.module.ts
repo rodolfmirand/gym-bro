@@ -23,11 +23,13 @@ import { DailyRoutineRemoveCardioController } from "src/controllers/dailyroutine
 import { DailyRoutineFindByPersonIdService } from "src/services/dailyroutine.findbypersonid.service";
 import { PersonModule } from "./person.module";
 import { DailyRoutineFindByPersonIdController } from "src/controllers/daillyroutine.findbypersonid.controller";
+import { DailyRoutineFindController } from "src/controllers/dailyroutine.find.controller";
 
 @Module({
     imports: [TypeOrmModule.forFeature([DailyRoutine]), ExerciseModule, forwardRef(() => WorkoutRoutineModule), forwardRef(() => PersonModule)],
     controllers: [DailyRoutineCreateController, DailyRoutineFindAllController, DailyRoutineCreateBodybuildingController, DailyRoutineCreateCardioController,
-        DailyRoutineAddCardioController, DailyRoutineAddBodybuildingController, DailyRoutineRemoveCardioController, DailyRoutineFindByPersonIdController
+        DailyRoutineAddCardioController, DailyRoutineAddBodybuildingController, DailyRoutineRemoveCardioController, DailyRoutineFindByPersonIdController,
+        DailyRoutineFindController
     ],
     providers: [DailyRoutineCreateService, DailyRoutineFindAllService, DailyRoutineUpdateService, DailyRoutineCreateCardioService, DailyRoutineUpdateService,
         DailyRoutineFindByWorkoutIdService, DailyRoutineCreateBodybuildingService, DailyRoutineFindService, DailyRoutineAddCardioService, DailyRoutineAddBodybuildingService,

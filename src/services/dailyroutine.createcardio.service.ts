@@ -15,8 +15,6 @@ export class DailyRoutineCreateCardioService {
 
     public async add(id: string, body: CardioRequestDTO) {
         const dailyRoutine = await this.dailyRoutineFindService.find(id)
-        if (!dailyRoutine)
-            throw new NotFoundException('Daily routine not found')
         const cardio = await this.cardioCreateService.create(body)
         dailyRoutine.cardioExercises.push(cardio)
         await this.dailyRoutineUpdateService.update(dailyRoutine)
