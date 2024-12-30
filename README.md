@@ -26,3 +26,8 @@ npm run start:dev
 ```env
 SECRET_KEY="sua_chave"
 ```
+
+## Front-End
+
+- Repositório: https://github.com/EdOc-PS/FRONTEND_Gymbro
+- Criado por: @EdOc-PS
