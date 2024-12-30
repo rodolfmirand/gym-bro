@@ -11,7 +11,7 @@ export class CardioDeleteService {
     public async delete(id: string): Promise<string> {
         if (!await this.model.findOne({ where: { id } }))
             throw new NotFoundException('Exercise not found')
-        this.model.delete(id)
+        await this.model.delete(id)
         return 'Exercise deleted successfully'
     }
 }

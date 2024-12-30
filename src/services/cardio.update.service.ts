@@ -11,6 +11,6 @@ export class CardioUpdateService {
     public async update(id: string, body: CardioExercise): Promise<CardioExercise> {
         if (!await this.model.findOne({ where: { id } }))
             throw new NotFoundException('Exercise not found')
-        return this.model.save(body)
+        return await this.model.save(body)
     }
 }

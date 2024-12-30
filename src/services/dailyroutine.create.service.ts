@@ -8,16 +8,29 @@ import { WorkoutRoutineFindService } from "./workoutroutine.find.service";
 @Injectable()
 export class DailyRoutineCreateService {
 
+    private letter: string = 'A'
+
     constructor(@InjectRepository(DailyRoutine) private model: Repository<DailyRoutine>,
         private readonly workoutUpdateService: WorkoutRoutineUpdateService,
         private readonly workoutFindService: WorkoutRoutineFindService) { }
 
-    public async create(body: DailyRoutine, id: string): Promise<DailyRoutine> {
+    public async create(id: string): Promise<DailyRoutine> {
         const workout = await this.workoutFindService.find(id)
-        const dailyRoutine = new DailyRoutine(body.name)
+        const dailyRoutine = new DailyRoutine()
+        const length = workout.dailyRoutine.length
+
+        if (length === 0)
+            dailyRoutine.name = this.letter
+        else
+            dailyRoutine.name = this.generateNextLetter(workout.dailyRoutine[length - 1].name)
+
         await this.model.save(dailyRoutine)
-        await workout.dailyRoutine.push(dailyRoutine)
+        workout.dailyRoutine.push(dailyRoutine)
         await this.workoutUpdateService.update(workout)
         return dailyRoutine
+    }
+
+    private generateNextLetter(lastLetter: string) {
+        return String.fromCharCode(lastLetter.charCodeAt(0) + 1)
     }
 }

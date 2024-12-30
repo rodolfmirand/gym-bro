@@ -20,7 +20,7 @@ export class PersonCreateService {
     public async create(body: PersonRequestDTO): Promise<PersonResponseDTO> {
         body.password = await this.hashPassword.hash(body.password)
         const person = await this.model.save(body)
-        this.workoutRoutineCreateService.create(person)
+        await this.workoutRoutineCreateService.create(person)
         return this.util.toPersonResponse(person)
     }
 }

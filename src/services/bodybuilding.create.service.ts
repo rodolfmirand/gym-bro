@@ -10,6 +10,6 @@ export class BodybuildingCreateService {
     constructor(@InjectRepository(BodyBuildingExercise) private model: Repository<BodyBuildingExercise>) { }
 
     public async create(body: BodybuildingRequestDTO): Promise<BodyBuildingExercise> {
-        return this.model.save(body)
+        return await this.model.save(body)
     }
 }

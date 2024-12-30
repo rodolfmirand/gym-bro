@@ -9,7 +9,13 @@ export class WorkoutRoutineFindService {
     constructor(@InjectRepository(WorkoutRoutine) private model: Repository<WorkoutRoutine>) { }
 
     public async find(id: string) {
-        const workout = await this.model.findOne({ where: { id }, relations: ['dailyRoutine', 'dailyRoutine.cardioExercises', 'dailyRoutine.bodybuildingExercises'] })
+        const workout = this.model
+            .createQueryBuilder("workout")
+            .leftJoinAndSelect("workout.dailyRoutine", "dailyRoutine")
+            .where("workout.id = :id", { id })
+            .orderBy("dailyRoutine.name", "ASC")  // Ordena as rotinas diárias pelo nome
+            .getOne();
+
         if (!workout)
             throw new NotFoundException('Workout routine not found')
         return workout

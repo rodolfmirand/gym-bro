@@ -10,6 +10,6 @@ export class CardioCreateService {
     constructor(@InjectRepository(CardioExercise) private model: Repository<CardioExercise>) { }
 
     public async create(body: CardioRequestDTO): Promise<CardioExercise> {
-        return this.model.save(body)
+        return await this.model.save(body)
     }
 }

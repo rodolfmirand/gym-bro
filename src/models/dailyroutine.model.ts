@@ -19,8 +19,4 @@ export class DailyRoutine {
     @JoinTable()
     bodybuildingExercises: BodyBuildingExercise[]
 
-    constructor(name: string) {
-        this.name = name
-    }
-
 }

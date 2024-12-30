@@ -15,7 +15,7 @@ export class DailyRoutineRemoveBodybuildingService {
         if (!bodybuilding)
             throw new NotFoundException('Bodybuilding exercise not found')
         dailyRoutine.bodybuildingExercises.slice(dailyRoutine.bodybuildingExercises.indexOf(bodybuilding), 1)
-        this.dailyRoutineUpdateSerice.update(dailyRoutine)
+        await this.dailyRoutineUpdateSerice.update(dailyRoutine)
         return 'Bodybuilding exercise deleted successfully'
     }
 }
