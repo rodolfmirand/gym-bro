@@ -7,7 +7,7 @@ export class DailyRoutineFindController {
 
     constructor(private readonly service: DailyRoutineFindService) { }
 
-    @Get('find/:id')
+    @Get(':id')
     public async find(@Param('id', new ParseUUIDPipe()) id: string): Promise<DailyRoutine>{
         return this.service.find(id)
     }
