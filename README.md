@@ -29,5 +29,6 @@ SECRET_KEY="sua_chave"
 
 ## Front-End
 
-- Repositório: https://github.com/EdOc-PS/FRONTEND_Gymbro
-- Criado por: @EdOc-PS
+- Repositório: [FRONTEND_Gymbro](https://github.com/EdOc-PS/FRONTEND_Gymbro)
+- Criado por: [@EdOc-PS](https://github.com/EdOc-PS)
+
