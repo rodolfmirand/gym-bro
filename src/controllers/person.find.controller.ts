@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException, Param, ParseUUIDPipe } from "@nestjs/common";
+import { Controller, Get, Param, ParseUUIDPipe } from "@nestjs/common";
 import { Person } from "src/models/person.model";
 import { PersonFindService } from "src/services/person.find.service";
 
@@ -9,6 +9,6 @@ export class PersonFindController {
 
     @Get(':id')
     public async find(@Param('id', new ParseUUIDPipe()) id: string): Promise<Person> {
-        return await this.service.find(id)
+        return this.service.find(id)
     }
 }
