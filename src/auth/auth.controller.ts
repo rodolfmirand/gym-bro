@@ -23,7 +23,7 @@ export class AuthController {
         if (!token)
             return 'No token provided'
 
-        await this.logoutService.addToBlacklist(token)
+        this.logoutService.addToBlacklist(token)
         return 'Logged out successfully'
     }
 }
