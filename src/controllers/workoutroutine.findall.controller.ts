@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
 import { WorkoutRoutine } from "src/models/workoutroutine.model";
 import { WorkoutRoutineFindAllService } from "src/services/workoutroutine.findall.service";
 
@@ -11,5 +11,4 @@ export class WorkoutRoutineFindAllController {
     public async findall(): Promise<WorkoutRoutine[]> {
         return this.service.findAll()
     }
-
 }

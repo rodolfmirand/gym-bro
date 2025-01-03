@@ -5,8 +5,8 @@ import { Repository } from "typeorm";
 import { WorkoutRoutineCreateService } from "./workoutroutine.create.service";
 import { HashPasswordUtility } from "src/utils/hash.password.util";
 import { PersonRequestDTO } from "src/dtos/request/person.request.dto";
-import { PersonResponseDTO } from "src/dtos/response/person.response.dto";
 import { PersonToPersoResponseDTOUtility } from "src/utils/person.topersonresponse.util";
+import { PersonResponseDTO } from "src/dtos/response/person.response.dto";
 
 @Injectable()
 export class PersonCreateService {
@@ -17,10 +17,9 @@ export class PersonCreateService {
         private readonly util: PersonToPersoResponseDTOUtility
     ) { }
 
-    public async create(body: PersonRequestDTO): Promise<PersonResponseDTO> {
+    public async create(body: PersonRequestDTO): Promise<string> {
         body.password = await this.hashPassword.hash(body.password)
-        const person = await this.model.save(body)
-        await this.workoutRoutineCreateService.create(person)
-        return this.util.toPersonResponse(person)
+        await this.workoutRoutineCreateService.create(await this.model.save(body))
+        return 'Person created successfully'
     }
 }

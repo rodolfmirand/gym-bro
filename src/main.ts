@@ -10,6 +10,10 @@ async function bootstrap() {
     transform: true,
     whitelist: true,
     forbidNonWhitelisted: true,
+    transformOptions: {
+      enableImplicitConversion: true,
+      excludeExtraneousValues: true
+    }
   }));
   app.useGlobalInterceptors(new TransformInterceptor());
   app.enableCors({
