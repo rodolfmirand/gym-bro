@@ -9,11 +9,11 @@ export class WorkoutRoutineFindService {
     constructor(@InjectRepository(WorkoutRoutine) private model: Repository<WorkoutRoutine>) { }
 
     public async find(id: string) {
-        const workout = this.model
+        const workout = await this.model
             .createQueryBuilder("workout")
             .leftJoinAndSelect("workout.dailyRoutine", "dailyRoutine")
             .where("workout.id = :id", { id })
-            .orderBy("dailyRoutine.name", "ASC")  // Ordena as rotinas diárias pelo nome
+            .orderBy("dailyRoutine.name", "ASC") 
             .getOne();
 
         if (!workout)
