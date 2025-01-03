@@ -3,6 +3,7 @@ import { PersonFindByUsernameService } from "../services/person.findbyusername.s
 import * as bcrypt from 'bcrypt';
 import { Person } from "src/models/person.model";
 import { JwtService } from "@nestjs/jwt";
+import { access } from "fs";
 
 @Injectable()
 export class AuthService {
@@ -24,8 +25,15 @@ export class AuthService {
             sub: person.id
         }
         return {
-            id: person.id,
-            access_token: this.jwtService.sign(payload)
+            access: {
+                token: this.jwtService.sign(payload)
+            },
+            person: {
+                id: person.id,
+                workoutRoutine: {
+                    id: person.workoutRoutine.id
+                }
+            }
         }
     }
 }
