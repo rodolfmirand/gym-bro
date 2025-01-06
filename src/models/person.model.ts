@@ -38,7 +38,7 @@ export class Person {
     birthDate: string
 
     @Expose()
-    @OneToOne(() => WorkoutRoutine, workoutRoutine => workoutRoutine.person)
+    @OneToOne(() => WorkoutRoutine, workoutRoutine => workoutRoutine.person, {cascade: true, onDelete: 'CASCADE'})
     @JoinColumn()
     workoutRoutine: WorkoutRoutine
 }
