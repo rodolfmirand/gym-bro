@@ -8,8 +8,8 @@ export class PersonDeleteService {
 
     constructor(@InjectRepository(Person) private model: Repository<Person>) { }
 
-    public async delete(person: Person): Promise<string> {
-        const result = await this.model.delete(person.id);
+    public async delete(id: string): Promise<string> {
+        const result = await this.model.delete(id);
         if (result.affected === 0) {
             throw new NotFoundException('Person not found');
         }
