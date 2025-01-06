@@ -11,7 +11,7 @@ Este projeto foi criado utilizando o framework [NestJS](https://nestjs.com/), co
 
 ```bash
 # Instalar o NestJS CLI
-npx @nestjs/cli new <project-name>
+npx @nestjs/cli
 
 # Instalar dependências necessárias
 npm install @nestjs/typeorm typeorm sqlite3
