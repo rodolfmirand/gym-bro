@@ -11,7 +11,7 @@ export class WorkoutRoutine {
     id: string
 
     @Expose()
-    @ManyToMany(() => DailyRoutine)
+    @ManyToMany(() => DailyRoutine, { cascade: true, onDelete: 'CASCADE' })
     @JoinTable()
     dailyRoutine: DailyRoutine[]
 

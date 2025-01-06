@@ -10,7 +10,16 @@ Este projeto foi criado utilizando o framework [NestJS](https://nestjs.com/), co
 ## Dependências
 
 ```bash
-npx @nestjs/cli && npm i @nestjs/typeorm typeorm sqlite3 && npm install @nestjs/jwt passport-jwt @nestjs/passport passport bcrypt && npm install --save-dev @types/passport-jwt @types/bcrypt && npm install class-validator class-transformer && npm install @nestjs/mapped-types
+# Instalar o NestJS CLI
+npx @nestjs/cli
+
+# Instalar dependências necessárias
+npm install @nestjs/typeorm typeorm sqlite3
+npm install @nestjs/jwt passport-jwt @nestjs/passport passport bcrypt
+npm install --save-dev @types/passport-jwt @types/bcrypt
+npm install class-validator class-transformer
+npm install @nestjs/mapped-types
+
 ```
 
 Execute o projeto:

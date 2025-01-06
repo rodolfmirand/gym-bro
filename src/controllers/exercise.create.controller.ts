@@ -1,5 +1,7 @@
 import { Body, Controller, Post, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
+import { BodybuildingRequestDTO } from "src/dtos/request/bodybuilding.request.dto";
+import { CardioRequestDTO } from "src/dtos/request/cardio.request.dto";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
 import { BodybuildingCreateService } from "src/services/bodybuilding.create.service";
@@ -12,13 +14,13 @@ export class ExerciseCreateController {
 
     @UseGuards(AuthGuard)
     @Post('bodybuilding')
-    public async createBodybuilding(@Body() body: BodyBuildingExercise): Promise<BodyBuildingExercise> {
+    public async createBodybuilding(@Body() body: BodybuildingRequestDTO): Promise<BodyBuildingExercise> {
         return this.bodybuildingService.create(body)
     }
 
     @UseGuards(AuthGuard)
     @Post('cardio')
-    public async createCardio(@Body() body: CardioExercise): Promise<CardioExercise> {
+    public async createCardio(@Body() body: CardioRequestDTO): Promise<CardioExercise> {
         return this.cardioService.create(body)
     }
 }
