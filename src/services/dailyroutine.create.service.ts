@@ -4,6 +4,7 @@ import { DailyRoutine } from "src/models/dailyroutine.model";
 import { Repository } from "typeorm";
 import { WorkoutRoutineUpdateService } from "./workoutroutine.update.service";
 import { WorkoutRoutineFindService } from "./workoutroutine.find.service";
+import { PersonFindService } from "./person.find.service";
 
 @Injectable()
 export class DailyRoutineCreateService {
@@ -12,10 +13,12 @@ export class DailyRoutineCreateService {
 
     constructor(@InjectRepository(DailyRoutine) private model: Repository<DailyRoutine>,
         private readonly workoutUpdateService: WorkoutRoutineUpdateService,
-        private readonly workoutFindService: WorkoutRoutineFindService) { }
+        private readonly workoutFindService: WorkoutRoutineFindService,
+        private readonly personFindService: PersonFindService) { }
 
     public async create(id: string): Promise<DailyRoutine> {
-        const workout = await this.workoutFindService.find(id)
+        const person = await this.personFindService.find(id)
+        const workout = person.workoutRoutine
         const dailyRoutine = new DailyRoutine()
         const length = workout.dailyRoutine.length
 

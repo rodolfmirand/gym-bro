@@ -10,8 +10,8 @@ export class BodyBuildingDeleteService {
 
     public async delete(id: string): Promise<string> {
         if (!await this.model.findOne({ where: { id } }))
-            throw new NotFoundException('Exercise not found')
+            throw new NotFoundException('Bodybuilding exercise not found')
         await this.model.delete(id)
-        return 'Exercise deleted successfully'
+        return 'Bodybuilding exercise deleted successfully'
     }
 }
