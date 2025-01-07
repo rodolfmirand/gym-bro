@@ -20,8 +20,8 @@ export class WorkoutRoutineCreateService {
         const workout = new WorkoutRoutine()
         person.workoutRoutine = workout
         await this.model.save(workout)
-        await this.dailyRoutineCreateService.create(workout.id)
         await this.personUpdateService.update(person, null)
+        await this.dailyRoutineCreateService.create(person.id)
         return workout
     }
 }
