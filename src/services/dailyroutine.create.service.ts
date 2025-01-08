@@ -1,10 +1,10 @@
-import { Injectable, MethodNotAllowedException, NotFoundException } from "@nestjs/common";
+import { Injectable, MethodNotAllowedException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DailyRoutine } from "src/models/dailyroutine.model";
 import { Repository } from "typeorm";
 import { WorkoutRoutineUpdateService } from "./workoutroutine.update.service";
-import { PersonFindService } from "./person.find.service";
 import { GenerateLetter } from "src/utils/generate.letter.util";
+import { WorkoutRoutineFindService } from "./workoutroutine.find.service";
 
 @Injectable()
 export class DailyRoutineCreateService {
@@ -13,11 +13,11 @@ export class DailyRoutineCreateService {
 
     constructor(@InjectRepository(DailyRoutine) private model: Repository<DailyRoutine>,
         private readonly workoutUpdateService: WorkoutRoutineUpdateService,
-        private readonly personFindService: PersonFindService) { }
+        private readonly workoutFindService: WorkoutRoutineFindService,
+    ) { }
 
-    public async create(id: string): Promise<DailyRoutine> {
-        const person = await this.personFindService.find(id)
-        const workout = person.workoutRoutine
+    public async create(idPerson: string): Promise<DailyRoutine> {
+        const workout = await this.workoutFindService.find(idPerson)
         const dailyRoutine = new DailyRoutine()
         const length = workout.dailyRoutine.length
 
