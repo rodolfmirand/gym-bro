@@ -16,7 +16,8 @@ export class PersonCreateService {
 
     public async create(body: PersonRequestDTO): Promise<string> {
         body.password = await this.hashPassword.hash(body.password)
-        await this.workoutRoutineCreateService.create(await this.model.save(body))
+        const person = await this.model.save(body)
+        await this.workoutRoutineCreateService.create(person)
         return 'Person created successfully'
     }
 }
