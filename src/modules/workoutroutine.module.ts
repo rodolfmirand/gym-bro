@@ -10,9 +10,10 @@ import { WorkoutRoutineFindByPersonIdController } from "src/controllers/workoutr
 import { WorkoutRoutineUpdateService } from "src/services/workoutroutine.update.service";
 import { WorkoutRoutineFindService } from "src/services/workoutroutine.find.service";
 import { DailyRoutineModule } from "./dailyroutine.module";
+import { Person } from "src/models/person.model";
 
 @Module({
-    imports: [TypeOrmModule.forFeature([WorkoutRoutine]), forwardRef(() => PersonModule), DailyRoutineModule],
+    imports: [TypeOrmModule.forFeature([WorkoutRoutine, Person]), forwardRef(() => PersonModule), DailyRoutineModule],
     controllers: [WorkoutRoutineFindAllController, WorkoutRoutineFindByPersonIdController],
     providers: [WorkoutRoutineCreateService, WorkoutRoutineFindAllService, WorkoutRoutineFindByPersonIdService,
         WorkoutRoutineUpdateService, WorkoutRoutineFindService],
