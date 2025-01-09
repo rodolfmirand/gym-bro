@@ -11,6 +11,6 @@ export class CardioUpdateService {
 
     public async update(cardio: CardioExercise, body: CardioUpdateDTO): Promise<CardioExercise> {
         cardio = this.model.merge(cardio, body)
-        return await this.model.save(body)
+        return await this.model.save(cardio)
     }
 }
