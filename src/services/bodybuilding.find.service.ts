@@ -11,7 +11,7 @@ export class BodybuildingFindService {
     public async find(id: string): Promise<BodyBuildingExercise> {
         const exercise = await this.model.findOne({ where: { id } })
         if (!exercise)
-            throw new NotFoundException('Exercise not found')
+            throw new NotFoundException('Bodybuilding exercise not found')
         return exercise
     }
 }
