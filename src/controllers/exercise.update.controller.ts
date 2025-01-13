@@ -7,7 +7,7 @@ import { CardioExercise } from "src/models/cardioexercise.model";
 import { BodybuildingUpdateService } from "src/services/bodybuilding.update.service";
 import { CardioUpdateService } from "src/services/cardio.update.service";
 
-@Controller('/exercise')
+@Controller('exercise')
 export class ExerciseUpdateController {
 
     constructor(private readonly bodybuildingService: BodybuildingUpdateService, private readonly cardioService: CardioUpdateService) { }
