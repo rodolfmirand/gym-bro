@@ -1,17 +1,13 @@
 import { Controller, Delete, Param, ParseUUIDPipe } from "@nestjs/common";
 import { DailyRoutineDeleteService } from "src/services/dailyroutine.delete.service";
-import { DailyRoutineFindService } from "src/services/dailyroutine.find.service";
 
 @Controller('daily')
 export class DailyRoutineDeleteController {
 
-    constructor(private readonly dailyRoutineDeleteService: DailyRoutineDeleteService,
-        private readonly dailyRoutineFindService: DailyRoutineFindService
-    ) { }
+    constructor(private readonly dailyRoutineDeleteService: DailyRoutineDeleteService) { }
 
-    @Delete(':id')
-    public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<string> {
-        await this.dailyRoutineFindService.find(id)
-        return this.dailyRoutineDeleteService.delete(id)
+    @Delete(':id/:idW')
+    public async delete(@Param('id', new ParseUUIDPipe()) id: string, @Param('idW', new ParseUUIDPipe()) idWorkoutRoutine: string): Promise<string> {
+        return this.dailyRoutineDeleteService.delete(id, idWorkoutRoutine)
     }
 }

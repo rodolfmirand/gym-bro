@@ -18,6 +18,7 @@ import { CardioFindService } from "src/services/cardio.find.service";
 import { CardioFindAllService } from "src/services/cardio.findall.service";
 import { CardioUpdateService } from "src/services/cardio.update.service";
 import { ExerciseDeleteService } from '../services/exercise.delete.service';
+import { ExerciseUpdateService } from "src/services/exercise.update.service";
 
 @Module({
     imports: [TypeOrmModule.forFeature([BodyBuildingExercise, CardioExercise])],
@@ -26,7 +27,7 @@ import { ExerciseDeleteService } from '../services/exercise.delete.service';
     ],
     providers: [CardioCreateService, CardioFindService, CardioFindAllService, CardioUpdateService, CardioDeleteService,
         BodybuildingCreateService, BodybuildingFindService, BodybuildingFindAllService, BodybuildingUpdateService, BodyBuildingDeleteService,
-        ExerciseDeleteService
+        ExerciseDeleteService, ExerciseUpdateService
     ],
     exports: [CardioCreateService, CardioFindService, CardioUpdateService, BodybuildingCreateService, BodybuildingFindService, BodybuildingUpdateService]
 })

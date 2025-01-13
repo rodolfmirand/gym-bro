@@ -12,7 +12,8 @@ export class WorkoutRoutineFindService {
         const workout = await this.model
             .createQueryBuilder("workout")
             .leftJoinAndSelect("workout.dailyRoutine", "dailyRoutine")
-            .where("workout.id = :id", { id })
+            .leftJoinAndSelect("workout.person", "person")
+            .where("person.id = :id", { id })
             .orderBy("dailyRoutine.name", "ASC") 
             .getOne();
 
