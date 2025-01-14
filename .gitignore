@@ -13,7 +13,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # sqlite database
-.sql
+database.sql
 
 # OS
 .DS_Store
