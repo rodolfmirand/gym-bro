@@ -11,7 +11,7 @@ export class ExerciseUpdateController {
 
     @UseGuards(AuthGuard)
     @Put(':id')
-    public async update(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: CardioUpdateDTO | BodybuildingUpdateDTO): Promise<string> {
+    public async update(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: CardioUpdateDTO | BodybuildingUpdateDTO): Promise<any> {
         return this.service.update(id, body)
     }
 }

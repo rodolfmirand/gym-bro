@@ -9,7 +9,7 @@ export class DailyRoutineAddCardioController {
 
     @UseGuards(AuthGuard)
     @Post('cardio/:id/:idCardio')
-    public async add(@Param('id', new ParseUUIDPipe()) id: string, @Param('idCardio') idCardio: string): Promise<string> {
+    public async add(@Param('id', new ParseUUIDPipe()) id: string, @Param('idCardio') idCardio: string): Promise<any> {
         return this.service.add(id, idCardio)
     }
 }

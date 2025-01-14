@@ -9,7 +9,7 @@ export class DailyRoutineAddBodybuildingController {
 
     @UseGuards(AuthGuard)
     @Post('bodybuilding/:id/:idBodybuilding')
-    public async add(@Param('id', new ParseUUIDPipe()) id: string, @Param('idBodybuilding') idBodybuilding: string): Promise<string> {
+    public async add(@Param('id', new ParseUUIDPipe()) id: string, @Param('idBodybuilding') idBodybuilding: string): Promise<any> {
         return this.service.add(id, idBodybuilding)
     }
 }

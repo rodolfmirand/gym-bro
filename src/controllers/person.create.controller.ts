@@ -8,7 +8,7 @@ export class PersonCreateController {
     constructor(private readonly service: PersonCreateService) { }
 
     @Post()
-    public async create(@Body() body: PersonRequestDTO): Promise<string> {
+    public async create(@Body() body: PersonRequestDTO): Promise<any> {
         return this.service.create(body)
     }
 }

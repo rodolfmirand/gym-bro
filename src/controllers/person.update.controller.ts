@@ -12,7 +12,7 @@ export class PersonUpdateController {
 
     @UseGuards(AuthGuard)
     @Put('/:id')
-    public async update(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: PersonUpdateDTO): Promise<string> {
+    public async update(@Param('id', new ParseUUIDPipe()) id: string, @Body() body: PersonUpdateDTO): Promise<any> {
         return this.personUpdateService.update(id, body)
     }
 }

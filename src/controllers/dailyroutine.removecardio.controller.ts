@@ -9,7 +9,7 @@ export class DailyRoutineRemoveCardioController {
 
     @UseGuards(AuthGuard)
     @Delete('cardio/:id/:idCardio')
-    public async remove(@Param('id', new ParseUUIDPipe()) id: string, @Param('idCardio', new ParseUUIDPipe()) idCardio: string): Promise<string> {
+    public async remove(@Param('id', new ParseUUIDPipe()) id: string, @Param('idCardio', new ParseUUIDPipe()) idCardio: string): Promise<any> {
         return this.service.remove(id, idCardio)
     }
 }

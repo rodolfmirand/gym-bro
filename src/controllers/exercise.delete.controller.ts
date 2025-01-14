@@ -12,7 +12,7 @@ export class ExerciseDeleteController {
 
     @UseGuards(AuthGuard)
     @Delete(':id')
-    public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<string> {
+    public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<any> {
         return this.service.delete(id)
     }
 }

@@ -9,7 +9,7 @@ export class PersonDeleteController {
         private readonly personDeleteService: PersonDeleteService) { }
 
     @Delete(':id')
-    public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<string> {
+    public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<any> {
         await this.personFindService.find(id)
         return this.personDeleteService.delete(id)
     }
