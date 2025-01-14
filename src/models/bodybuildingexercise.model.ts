@@ -1,10 +1,9 @@
 import { MuscleGroupEnum } from "src/models/enum/musclegroup.enum"
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { Exercise } from "./abstract/exercise.abstract";
 import { Expose } from "class-transformer";
 
 @Entity()
-export class BodyBuildingExercise extends Exercise {
+export class BodyBuildingExercise {
 
     @Expose()
     @PrimaryGeneratedColumn('uuid')
