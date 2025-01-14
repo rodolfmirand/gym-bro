@@ -8,10 +8,10 @@ export class BodyBuildingDeleteService {
 
     constructor(@InjectRepository(BodyBuildingExercise) private model: Repository<BodyBuildingExercise>) { }
 
-    public async delete(id: string): Promise<string> {
+    public async delete(id: string): Promise<any> {
         if (!await this.model.findOne({ where: { id } }))
             throw new NotFoundException('Bodybuilding exercise not found')
         await this.model.delete(id)
-        return 'Bodybuilding exercise deleted successfully'
+        return { status: 'Bodybuilding exercise deleted successfully' }
     }
 }

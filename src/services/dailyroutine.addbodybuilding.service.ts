@@ -11,11 +11,11 @@ export class DailyRoutineAddBodybuildingService {
         private readonly bodybuildingFindService: BodybuildingFindService
     ) { }
 
-    public async add(id: string, idBodybuilding: string): Promise<string> {
+    public async add(id: string, idBodybuilding: string): Promise<any> {
         const dailyRoutine = await this.dailyRoutineFindService.find(id)
         const bodybuilding = await this.bodybuildingFindService.find(idBodybuilding)
         dailyRoutine.bodybuildingExercises.push(bodybuilding)
         await this.dailyRoutineUpdateService.update(dailyRoutine)
-        return 'Bodybuilding exercise added successfully'
+        return { status: 'Bodybuilding exercise added successfully'}
     }
 }

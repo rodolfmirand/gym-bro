@@ -12,11 +12,11 @@ export class DailyRoutineAddCardioService {
         private readonly cardioFindService: CardioFindService
     ) { }
 
-    public async add(id: string, idCardio: string): Promise<string> {
+    public async add(id: string, idCardio: string): Promise<any> {
         const dailyRoutine = await this.dailyroutineFindService.find(id)
         const cardio = await this.cardioFindService.find(idCardio)
         dailyRoutine.cardioExercises.push(cardio)
         await this.dailyRoutineUpdateService.update(dailyRoutine)
-        return 'Cardio exercise added successfully'
+        return { status: 'Cardio exercise added successfully' }
     }
 }

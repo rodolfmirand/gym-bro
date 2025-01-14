@@ -11,13 +11,13 @@ export class ExerciseDeleteService {
         @InjectRepository(CardioExercise) private cardioModel: Repository<CardioExercise>
     ) { }
 
-    public async delete(id: string): Promise<string> {
+    public async delete(id: string): Promise<any> {
         if (await this.bodybuildingModel.findOne({ where: { id } })) {
             await this.bodybuildingModel.delete(id)
-            return 'Bodybuilding exercise deleted successfully'
+            return { status: 'Bodybuilding exercise deleted successfully' }
         } else if (await this.cardioModel.findOne({ where: { id } })) {
             await this.cardioModel.delete(id)
-            return 'Cardio exercise deleted sucessfully'
+            return { status: 'Cardio exercise deleted sucessfully'}
         }
         throw new NotFoundException('No exercise with this ID was found')
     }

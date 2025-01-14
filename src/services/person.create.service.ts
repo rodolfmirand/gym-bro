@@ -14,10 +14,10 @@ export class PersonCreateService {
         private readonly hashPassword: HashPasswordUtility,
     ) { }
 
-    public async create(body: PersonRequestDTO): Promise<string> {
+    public async create(body: PersonRequestDTO): Promise<any> {
         body.password = await this.hashPassword.hash(body.password)
         const person = await this.model.save(body)
         await this.workoutRoutineCreateService.create(person)
-        return 'Person created successfully'
+        return { status: 'Person created successfully' }
     }
 }
