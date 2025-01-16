@@ -1,7 +1,6 @@
 import { BadRequestException, Body, Controller, Post, Req, UnauthorizedException } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { LogoutService } from "./logout.service";
-import { BadRequestError } from "openai";
 
 @Controller('auth')
 export class AuthController {
