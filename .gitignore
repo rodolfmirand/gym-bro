@@ -12,6 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# sqlite database
+database.sql
+
 # OS
 .DS_Store
 

@@ -1,9 +1,8 @@
 import { Injectable } from "@nestjs/common";
-import { PersonFindByUsernameService } from "../services/person.findbyusername.service";
+import { PersonFindByUsernameService } from "../services/person/person.findbyusername.service";
 import * as bcrypt from 'bcrypt';
 import { Person } from "src/models/person.model";
 import { JwtService } from "@nestjs/jwt";
-import { access } from "fs";
 
 @Injectable()
 export class AuthService {

@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Req, UnauthorizedException } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Post, Req, UnauthorizedException } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { LogoutService } from "./logout.service";
 
@@ -18,12 +18,12 @@ export class AuthController {
     }
 
     @Post('logout')
-    public async logout(@Req() request: any): Promise<string> {
+    public async logout(@Req() request: any): Promise<any> {
         const token = request.headers.authorization?.split(' ')[1];
         if (!token)
-            return 'No token provided'
+            throw new BadRequestException('No token found')
 
         this.logoutService.addToBlacklist(token)
-        return 'Logged out successfully'
+        return { status: 'Logged out successfully' }
     }
 }
