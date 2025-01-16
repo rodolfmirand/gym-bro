@@ -1,9 +1,9 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ExerciseCreateController } from "src/controllers/exercise.create.controller";
+import { CardioCreateController } from "src/controllers/cardio.create.controller";
 import { ExerciseDeleteController } from "src/controllers/exercise.delete.controller";
 import { ExerciseFindController } from "src/controllers/exercise.find.controller";
-import { ExerciseFindAllController } from "src/controllers/exercise.findall.controller";
+import { CardioFindAllController } from "src/controllers/cardio.findall.controller";
 import { ExerciseUpdateController } from "src/controllers/exercise.update.controller";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
@@ -19,15 +19,15 @@ import { CardioFindAllService } from "src/services/cardio.findall.service";
 import { CardioUpdateService } from "src/services/cardio.update.service";
 import { ExerciseDeleteService } from '../services/exercise.delete.service';
 import { ExerciseUpdateService } from "src/services/exercise.update.service";
+import { BodybuildingCreateController } from "src/controllers/bodybuilding.create.controller";
+import { BodybuildingFindAllController } from "src/controllers/bodybuilding.findall.controller";
+import { ExerciseFindService } from "src/services/exercise.find.service";
 
 @Module({
     imports: [TypeOrmModule.forFeature([BodyBuildingExercise, CardioExercise])],
-    controllers: [ExerciseCreateController, ExerciseFindAllController, ExerciseFindController,
-        ExerciseDeleteController, ExerciseUpdateController
+    controllers: [CardioCreateController, ExerciseFindController, ExerciseDeleteController, ExerciseUpdateController, CardioCreateController, CardioFindAllController, BodybuildingCreateController, BodybuildingFindAllController
     ],
-    providers: [CardioCreateService, CardioFindService, CardioFindAllService, CardioUpdateService, CardioDeleteService,
-        BodybuildingCreateService, BodybuildingFindService, BodybuildingFindAllService, BodybuildingUpdateService, BodyBuildingDeleteService,
-        ExerciseDeleteService, ExerciseUpdateService
+    providers: [CardioCreateService, CardioFindService, CardioFindAllService, CardioUpdateService, CardioDeleteService, BodybuildingCreateService, BodybuildingFindService, BodybuildingFindAllService, BodybuildingUpdateService, BodyBuildingDeleteService, ExerciseDeleteService, ExerciseUpdateService, ExerciseFindService
     ],
     exports: [CardioCreateService, CardioFindService, CardioUpdateService, BodybuildingCreateService, BodybuildingFindService, BodybuildingUpdateService]
 })
