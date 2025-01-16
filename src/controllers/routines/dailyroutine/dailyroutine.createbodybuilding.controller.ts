@@ -2,7 +2,7 @@ import { Body, Controller, Param, ParseUUIDPipe, Post, UseGuards } from "@nestjs
 import { AuthGuard } from "src/auth/auth.guard";
 import { BodybuildingRequestDTO } from "src/dtos/request/bodybuilding.request.dto";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
-import { DailyRoutineCreateBodybuildingService } from "src/services/dailyroutine.createbodybuilding.service";
+import { DailyRoutineCreateBodybuildingService } from "src/services/routines/dailyroutine/dailyroutine.createbodybuilding.service";
 
 @Controller('daily')
 export class DailyRoutineCreateBodybuildingController {

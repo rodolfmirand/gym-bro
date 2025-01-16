@@ -1,6 +1,6 @@
 import { Controller, Get } from "@nestjs/common";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
-import { BodybuildingFindAllService } from "src/services/bodybuilding.findall.service";
+import { BodybuildingFindAllService } from "src/services/exercise/bodybuilding/bodybuilding.findall.service";
 
 @Controller('exercise')
 export class BodybuildingFindAllController {

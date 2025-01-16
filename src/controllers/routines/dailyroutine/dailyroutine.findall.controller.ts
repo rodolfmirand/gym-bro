@@ -1,6 +1,6 @@
 import { Controller, Get } from "@nestjs/common";
 import { DailyRoutine } from "src/models/dailyroutine.model";
-import { DailyRoutineFindAllService } from "src/services/dailyroutine.findall.service";
+import { DailyRoutineFindAllService } from "src/services/routines/dailyroutine/dailyroutine.findall.service";
 
 @Controller('daily')
 export class DailyRoutineFindAllController {

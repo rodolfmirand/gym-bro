@@ -2,7 +2,7 @@ import { Body, Controller, Post, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
 import { BodybuildingRequestDTO } from "src/dtos/request/bodybuilding.request.dto";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
-import { BodybuildingCreateService } from "src/services/bodybuilding.create.service";
+import { BodybuildingCreateService } from "src/services/exercise/bodybuilding/bodybuilding.create.service";
 
 @Controller('exercise')
 export class BodybuildingCreateController {

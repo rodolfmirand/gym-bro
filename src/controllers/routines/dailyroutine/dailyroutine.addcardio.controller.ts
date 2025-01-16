@@ -1,6 +1,6 @@
 import { Controller, Param, ParseUUIDPipe, Post, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
-import { DailyRoutineAddCardioService } from "src/services/dailyroutine.addcardio.service";
+import { DailyRoutineAddCardioService } from "src/services/routines/dailyroutine/dailyroutine.addcardio.service";
 
 @Controller('daily')
 export class DailyRoutineAddCardioController {

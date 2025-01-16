@@ -1,5 +1,5 @@
 import { Controller, Delete, Param, ParseUUIDPipe } from "@nestjs/common";
-import { DailyRoutineRemoveBodybuildingService } from "src/services/dailyroutine.removebodybuilding.service";
+import { DailyRoutineRemoveBodybuildingService } from "src/services/routines/dailyroutine/dailyroutine.removebodybuilding.service";
 
 @Controller('daily')
 export class DailyRoutineRemoveBodybuildingController {

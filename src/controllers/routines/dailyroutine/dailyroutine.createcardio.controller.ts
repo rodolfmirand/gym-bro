@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, ParseUUIDPipe, Post, UseGuards } from "@n
 import { AuthGuard } from "src/auth/auth.guard";
 import { CardioRequestDTO } from "src/dtos/request/cardio.request.dto";
 import { CardioExercise } from "src/models/cardioexercise.model";
-import { DailyRoutineCreateCardioService } from "src/services/dailyroutine.createcardio.service";
+import { DailyRoutineCreateCardioService } from "src/services/routines/dailyroutine/dailyroutine.createcardio.service";
 
 @Controller('daily')
 export class DailyRoutineCreateCardioController {

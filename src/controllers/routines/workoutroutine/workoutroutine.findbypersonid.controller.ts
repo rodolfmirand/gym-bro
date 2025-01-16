@@ -1,6 +1,6 @@
 import { Controller, Get, Param, ParseUUIDPipe } from "@nestjs/common";
 import { WorkoutRoutine } from "src/models/workoutroutine.model";
-import { WorkoutRoutineFindByPersonIdService } from "src/services/workoutroutine.findbypersonid.service";
+import { WorkoutRoutineFindByPersonIdService } from "src/services/routines/workoutroutine/workoutroutine.findbypersonid.service";
 
 @Controller('workout')
 export class WorkoutRoutineFindByPersonIdController {

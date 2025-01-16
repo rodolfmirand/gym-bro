@@ -1,5 +1,5 @@
 import { Controller, Delete, Param, ParseUUIDPipe } from "@nestjs/common";
-import { DailyRoutineDeleteService } from "src/services/dailyroutine.delete.service";
+import { DailyRoutineDeleteService } from "src/services/routines/dailyroutine/dailyroutine.delete.service";
 
 @Controller('daily')
 export class DailyRoutineDeleteController {

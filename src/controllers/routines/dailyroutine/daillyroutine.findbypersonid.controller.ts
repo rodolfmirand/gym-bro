@@ -1,6 +1,6 @@
 import { Controller, Get, Param, ParseUUIDPipe } from "@nestjs/common";
 import { DailyRoutine } from "src/models/dailyroutine.model";
-import { DailyRoutineFindByPersonIdService } from "src/services/dailyroutine.findbypersonid.service";
+import { DailyRoutineFindByPersonIdService } from "src/services/routines/dailyroutine/dailyroutine.findbypersonid.service";
 
 @Controller('daily')
 export class DailyRoutineFindByPersonIdController {

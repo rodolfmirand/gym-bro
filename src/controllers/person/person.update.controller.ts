@@ -1,5 +1,5 @@
 import { Body, Controller, Param, ParseUUIDPipe, Put, UseGuards } from "@nestjs/common";
-import { PersonUpdateService } from "src/services/person.update.service";
+import { PersonUpdateService } from "src/services/person/person.update.service";
 import { AuthGuard } from "src/auth/auth.guard";
 import { PersonUpdateDTO } from "src/dtos/request/person.update.dto";
 
