@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { WorkoutRoutineFindService } from './workoutroutine.find.service';
+import { WorkoutRoutineFindService } from '../workoutroutine/workoutroutine.find.service';
 import { DailyRoutine } from 'src/models/dailyroutine.model';
 
 @Injectable()

@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Person } from "src/models/person.model";
 import { Repository } from "typeorm";
-import { WorkoutRoutineCreateService } from "./workoutroutine.create.service";
+import { WorkoutRoutineCreateService } from "../routines/workoutroutine/workoutroutine.create.service";
 import { HashPasswordUtility } from "src/utils/hash.password.util";
 import { PersonRequestDTO } from "src/dtos/request/person.request.dto";
 

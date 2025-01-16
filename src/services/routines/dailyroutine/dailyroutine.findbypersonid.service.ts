@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { DailyRoutine } from "src/models/dailyroutine.model";
-import { PersonFindService } from "./person.find.service";
+import { PersonFindService } from "../../person/person.find.service";
 
 @Injectable()
 export class DailyRoutineFindByPersonIdService {

@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { CardioExercise } from "src/models/cardioexercise.model";
-import { CardioCreateService } from "./cardio.create.service";
+import { CardioCreateService } from "../../exercise/cardio/cardio.create.service";
 import { DailyRoutineUpdateService } from "./dailyroutine.update.service";
 import { DailyRoutineFindService } from "./dailyroutine.find.service";
 import { CardioRequestDTO } from "src/dtos/request/cardio.request.dto";

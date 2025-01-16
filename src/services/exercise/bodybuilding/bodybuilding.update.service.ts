@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { BodyBuildingExercise } from '../models/bodybuildingexercise.model';
+import { BodyBuildingExercise } from '../../../models/bodybuildingexercise.model';
 import { BodybuildingRequestDTO } from 'src/dtos/request/bodybuilding.request.dto';
 import { BodybuildingUpdateDTO } from 'src/dtos/request/bodybuilding.update.dto';
 

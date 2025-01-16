@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { WorkoutRoutine } from "src/models/workoutroutine.model";
-import { PersonFindService } from "./person.find.service";
+import { PersonFindService } from "../../person/person.find.service";
 
 @Injectable()
 export class WorkoutRoutineFindByPersonIdService {

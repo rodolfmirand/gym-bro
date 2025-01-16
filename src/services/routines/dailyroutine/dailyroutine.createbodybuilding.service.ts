@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { DailyRoutineUpdateService } from "./dailyroutine.update.service";
-import { BodybuildingCreateService } from "./bodybuilding.create.service";
+import { BodybuildingCreateService } from "../../exercise/bodybuilding/bodybuilding.create.service";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { DailyRoutineFindService } from "./dailyroutine.find.service";
 import { BodybuildingRequestDTO } from "src/dtos/request/bodybuilding.request.dto";

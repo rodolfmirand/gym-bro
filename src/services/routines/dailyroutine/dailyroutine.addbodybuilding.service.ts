@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { DailyRoutineFindService } from "./dailyroutine.find.service";
 import { DailyRoutineUpdateService } from "./dailyroutine.update.service";
-import { BodybuildingFindService } from "./bodybuilding.find.service";
+import { BodybuildingFindService } from "../../exercise/bodybuilding/bodybuilding.find.service";
 
 @Injectable()
 export class DailyRoutineAddBodybuildingService {

@@ -2,9 +2,9 @@ import { Injectable, MethodNotAllowedException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DailyRoutine } from "src/models/dailyroutine.model";
 import { Repository } from "typeorm";
-import { WorkoutRoutineUpdateService } from "./workoutroutine.update.service";
+import { WorkoutRoutineUpdateService } from "../workoutroutine/workoutroutine.update.service";
 import { GenerateLetter } from "src/utils/generate.letter.util";
-import { WorkoutRoutineFindService } from "./workoutroutine.find.service";
+import { WorkoutRoutineFindService } from "../workoutroutine/workoutroutine.find.service";
 
 @Injectable()
 export class DailyRoutineCreateService {

@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { WorkoutRoutine } from "src/models/workoutroutine.model";
 import { Repository } from "typeorm";
 import { Person } from "src/models/person.model";
-import { DailyRoutineCreateService } from "./dailyroutine.create.service";
+import { DailyRoutineCreateService } from "../dailyroutine/dailyroutine.create.service";
 
 @Injectable()
 export class WorkoutRoutineCreateService {

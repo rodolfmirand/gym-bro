@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { CardioFindService } from "./cardio.find.service";
-import { BodybuildingFindService } from "./bodybuilding.find.service";
+import { CardioFindService } from "./cardio/cardio.find.service";
+import { BodybuildingFindService } from "./bodybuilding/bodybuilding.find.service";
 import { CardioUpdateDTO } from "src/dtos/request/cardio.update.dto";
 import { BodybuildingUpdateDTO } from "src/dtos/request/bodybuilding.update.dto";
-import { CardioUpdateService } from "./cardio.update.service";
-import { BodybuildingUpdateService } from "./bodybuilding.update.service";
+import { CardioUpdateService } from "./cardio/cardio.update.service";
+import { BodybuildingUpdateService } from "./bodybuilding/bodybuilding.update.service";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CardioExercise } from "src/models/cardioexercise.model";
 import { Repository } from "typeorm";
