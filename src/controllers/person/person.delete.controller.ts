@@ -1,6 +1,6 @@
 import { Controller, Delete, Param, ParseUUIDPipe } from "@nestjs/common";
 import { PersonDeleteService } from "src/services/person.delete.service";
-import { PersonFindService } from '../services/person.find.service';
+import { PersonFindService } from '../../services/person.find.service';
 
 @Controller('person')
 export class PersonDeleteController {
