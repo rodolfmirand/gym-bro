@@ -1,5 +1,4 @@
 import { Controller, Get, Param, ParseUUIDPipe } from "@nestjs/common";
-import { CardioExercise } from "src/models/cardioexercise.model";
 import { ExerciseFindService } from "src/services/exercise/exercise.find.service";
 
 @Controller('exercise')
