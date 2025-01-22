@@ -28,6 +28,7 @@ export class AuthService {
                 token: this.jwtService.sign(payload)
             },
             person: {
+                name: person.name,
                 id: person.id,
                 workoutRoutine: {
                     id: person.workoutRoutine.id
