@@ -31,6 +31,7 @@ npm run start:dev
 
 ```env
 SECRET_KEY="sua_chave"
+GEMINI_API_KEY="sua_chave_gemini"
 ```
 
 ## Front-End
