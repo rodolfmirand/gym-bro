@@ -28,8 +28,10 @@ export class AuthService {
                 token: this.jwtService.sign(payload)
             },
             person: {
-                name: person.name,
                 id: person.id,
+                name: person.name,
+                height: person.height,
+                weight: person.weight,
                 workoutRoutine: {
                     id: person.workoutRoutine.id
                 }
