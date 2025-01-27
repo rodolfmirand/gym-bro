@@ -6,7 +6,6 @@ import * as dotenv from 'dotenv';
 import { WorkoutRoutineModule } from './modules/workoutroutine.module';
 import { DailyRoutineModule } from './modules/dailyroutine.module';
 import { AuthModule } from './auth/auth.module';
-import { ConfigModule } from '@nestjs/config';
 import { GeminiModule } from './gemini/gemini.module';
 
 dotenv.config();
