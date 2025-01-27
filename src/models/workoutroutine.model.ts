@@ -6,16 +6,13 @@ import { Exclude, Expose } from "class-transformer";
 @Entity()
 export class WorkoutRoutine {
 
-    @Expose()
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Expose()
     @ManyToMany(() => DailyRoutine, { cascade: true, onDelete: 'CASCADE' })
     @JoinTable()
     dailyRoutine: DailyRoutine[]
 
-    @Exclude()
     @OneToOne(() => Person, person => person.workoutRoutine)
     person: Person
 
