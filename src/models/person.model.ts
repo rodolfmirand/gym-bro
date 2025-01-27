@@ -16,9 +16,9 @@ export class Person {
     @Expose()
     @Column({length: 12, unique: true})
     username: string
-    
+
     @Expose()
-    @Column({ length: 100, unique: true})
+    @Column({ length: 100, unique: true })
     email: string
 
     @Exclude()
@@ -38,7 +38,7 @@ export class Person {
     birthDate: string
 
     @Expose()
-    @OneToOne(() => WorkoutRoutine, workoutRoutine => workoutRoutine.person, {cascade: true, onDelete: 'CASCADE'})
+    @OneToOne(() => WorkoutRoutine, workoutRoutine => workoutRoutine.person, { cascade: true, onDelete: 'CASCADE' })
     @JoinColumn()
     workoutRoutine: WorkoutRoutine
 }
