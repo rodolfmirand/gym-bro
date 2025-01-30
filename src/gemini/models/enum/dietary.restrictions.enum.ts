@@ -1,6 +1,6 @@
 export enum DietaryRestrictionsEnum {
-    LACTOSE_INTOLERANCE = 'lactose_intolerance',
-    GLUTEN_INTOLERRANCE = 'gluten_intolerance',
-    NUT_ALLERGY = 'nut_allergy',
-    SEAFOOD_ALLERGY = 'seafood_allergy'
+    LACTOSE_INTOLERANCE = 'lLACTOSE_INTOLERANCE',
+    GLUTEN_INTOLERRANCE = 'GLUTEN_INTOLERRANCE',
+    NUT_ALLERGY = 'NUT_ALLERGY',
+    SEAFOOD_ALLERGY = 'SEAFOOD_ALLERGY'
 }

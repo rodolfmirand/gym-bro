@@ -1,7 +1,7 @@
 export enum ObjectiveEnum {
-    WEIGHT_LOSS = 'weight_loss',
-    HYPERTROPHY = 'hypertrophy',
-    POWERLIFTING = 'powerlifting',
-    ENDURANCE = 'endurance',
-    WELL_BEING = 'well_being'
+    WEIGHT_LOSS = 'WEIGHT_LOSS',
+    HYPERTROPHY = 'HYPERTROPHY',
+    POWERLIFTING = 'POWERLIFTING',
+    ENDURANCE = 'ENDURANCE',
+    WELL_BEING = 'WELL_BEING'
 }

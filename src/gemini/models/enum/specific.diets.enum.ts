@@ -1,5 +1,5 @@
 export enum SpecificDietEnum {
-    VEGAN = 'vegan',
-    VEGETARIAN = 'vegetarian',
-    NONE = 'none'
+    VEGAN = 'VEGAN',
+    VEGETARIAN = 'VEGETARIAN',
+    NONE = 'NONE'
 }
