@@ -43,7 +43,7 @@ export class GeminiService {
             dieta: ${restrictions.diet}.
             `
 
-        const model = this.genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+        const model = this.genAI.getGenerativeModel({ model: "gemini-2.0-flash" })
         const response = (await model.generateContent(prompt)).response.text()
         console.log(response)
 
