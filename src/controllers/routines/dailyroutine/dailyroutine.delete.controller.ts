@@ -4,10 +4,10 @@ import { DailyRoutineDeleteService } from "src/services/routines/dailyroutine/da
 @Controller('daily')
 export class DailyRoutineDeleteController {
 
-    constructor(private readonly dailyRoutineDeleteService: DailyRoutineDeleteService) { }
+    constructor(private readonly service: DailyRoutineDeleteService) { }
 
-    @Delete(':id/:idW')
-    public async delete(@Param('id', new ParseUUIDPipe()) id: string, @Param('idW', new ParseUUIDPipe()) idWorkoutRoutine: string): Promise<any> {
-        return this.dailyRoutineDeleteService.delete(id, idWorkoutRoutine)
+    @Delete(':id/:idPerson')
+    public async delete(@Param('id', new ParseUUIDPipe()) id: string, @Param('idW', new ParseUUIDPipe()) idPerson: string): Promise<any> {
+        return this.service.delete(id, idPerson)
     }
 }
