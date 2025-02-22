@@ -14,12 +14,12 @@ export class DailyRoutineDeleteService {
         private readonly workoutRoutineFindService: WorkoutRoutineFindService
     ) { }
 
-    public async delete(id: string, idWorkoutRoutine: string): Promise<any> {
+    public async delete(id: string, idPerson: string): Promise<any> {
         const result = await this.model.delete(id);
         if (result.affected === 0) {
             throw new NotFoundException('Daily routine not found')
         }
-        const workout = await this.workoutRoutineFindService.find(idWorkoutRoutine)
+        const workout = await this.workoutRoutineFindService.find(idPerson)
         const dailyRoutine = workout.dailyRoutine
         let counter = 65
         dailyRoutine.forEach((daily) => {
