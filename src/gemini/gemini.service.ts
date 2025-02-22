@@ -45,10 +45,8 @@ export class GeminiService {
 
         const model = this.genAI.getGenerativeModel({ model: "gemini-2.0-flash" })
         const response = (await model.generateContent(prompt)).response.text()
-        console.log(response)
 
         const meals = response.split('#').map(part => part.trim())
-        console.log(meals)
 
         const geminiResponse = new GeminiResponseDTO()
 
