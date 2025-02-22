@@ -29,6 +29,9 @@ export class AuthService {
             },
             person: {
                 id: person.id,
+                name: person.name,
+                height: person.height,
+                weight: person.weight,
                 workoutRoutine: {
                     id: person.workoutRoutine.id
                 }

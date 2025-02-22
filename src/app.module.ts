@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 import { WorkoutRoutineModule } from './modules/workoutroutine.module';
 import { DailyRoutineModule } from './modules/dailyroutine.module';
 import { AuthModule } from './auth/auth.module';
+import { GeminiModule } from './gemini/gemini.module';
 
 dotenv.config();
 
@@ -24,11 +25,11 @@ dotenv.config();
 
 
 @Module({
-  imports: [AuthModule, PersonModule, ExerciseModule, WorkoutRoutineModule, DailyRoutineModule, TypeOrmModule.forRoot({
+  imports: [GeminiModule, AuthModule, PersonModule, ExerciseModule, WorkoutRoutineModule, DailyRoutineModule, TypeOrmModule.forRoot({
     "database": "./database.sql",
     "type": "sqlite",
     "synchronize": true,
     "entities": ["dist/**/*.model.js"]
-  })],
+  }), GeminiModule],
 })
 export class AppModule { }

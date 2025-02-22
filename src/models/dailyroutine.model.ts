@@ -6,20 +6,16 @@ import { Expose } from "class-transformer";
 @Entity()
 export class DailyRoutine {
 
-    @Expose()
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Expose()
     @Column({ length: 10 })
     name: string
 
-    @Expose()
     @ManyToMany(() => CardioExercise)
     @JoinTable()
     cardioExercises: CardioExercise[]
 
-    @Expose()
     @ManyToMany(() => BodyBuildingExercise)
     @JoinTable()
     bodybuildingExercises: BodyBuildingExercise[]

@@ -16,6 +16,7 @@ npm install @nestjs/jwt passport-jwt @nestjs/passport passport bcrypt
 npm install --save-dev @types/passport-jwt @types/bcrypt
 npm install class-validator class-transformer
 npm install @nestjs/mapped-types
+npm install @google/generative-ai
 ```
 
 Execute o projeto:
@@ -30,6 +31,7 @@ npm run start:dev
 
 ```env
 SECRET_KEY="sua_chave"
+GEMINI_API_KEY="sua_chave_gemini"
 ```
 
 ## Front-End

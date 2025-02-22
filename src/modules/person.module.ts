@@ -9,7 +9,6 @@ import { PersonUpdateService } from 'src/services/person/person.update.service';
 import { WorkoutRoutineModule } from './workoutroutine.module';
 import { PersonFindByUsernameService } from 'src/services/person/person.findbyusername.service';
 import { HashPasswordUtility } from 'src/utils/hash.password.util';
-import { PersonToPersoResponseDTOUtility } from 'src/utils/person.topersonresponse.util';
 import { PersonCreateController } from 'src/controllers/person/person.create.controller';
 import { PersonDeleteController } from 'src/controllers/person/person.delete.controller';
 import { PersonFindController } from 'src/controllers/person/person.find.controller';
@@ -20,7 +19,7 @@ import { PersonUpdateController } from 'src/controllers/person/person.update.con
     imports: [TypeOrmModule.forFeature([Person]), WorkoutRoutineModule],
     controllers: [PersonCreateController, PersonDeleteController, PersonFindAllController, PersonFindController, PersonUpdateController],
     providers: [PersonCreateService, PersonFindService, PersonFindAllService, PersonDeleteService, PersonUpdateService, 
-        PersonFindByUsernameService, HashPasswordUtility, PersonToPersoResponseDTOUtility],
+        PersonFindByUsernameService, HashPasswordUtility],
     exports: [PersonFindService, PersonUpdateService, PersonFindByUsernameService]
 })
 export class PersonModule { }
