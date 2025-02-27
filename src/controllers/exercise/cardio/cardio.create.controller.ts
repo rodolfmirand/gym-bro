@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, HttpException, HttpStatus, Post, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
 import { CardioRequestDTO } from "src/dtos/request/cardio.request.dto";
 import { CardioExercise } from "src/models/cardioexercise.model";
@@ -12,6 +12,10 @@ export class CardioCreateController {
     @UseGuards(AuthGuard)
     @Post('cardio')
     public async create(@Body() body: CardioRequestDTO): Promise<CardioExercise> {
-        return this.service.create(body)
+        try {
+            return this.service.create(body)
+        } catch (error) {
+            throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
     }
 }

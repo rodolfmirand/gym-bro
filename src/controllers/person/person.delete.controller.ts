@@ -1,4 +1,4 @@
-import { Controller, Delete, Param, ParseUUIDPipe } from "@nestjs/common";
+import { Controller, Delete, HttpException, HttpStatus, Param, ParseUUIDPipe } from "@nestjs/common";
 import { PersonDeleteService } from "src/services/person/person.delete.service";
 
 @Controller('person')
@@ -8,6 +8,13 @@ export class PersonDeleteController {
 
     @Delete(':id')
     public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<any> {
-        return this.personDeleteService.delete(id)
+        try {
+            return this.personDeleteService.delete(id)
+        } catch (error) {
+            if (error instanceof HttpException)
+                throw error
+
+            throw new HttpException('Error deleting person.', HttpStatus.INTERNAL_SERVER_ERROR)
+        }
     }
 }

@@ -9,6 +9,10 @@ export class PersonCreateController {
 
     @Post()
     public async create(@Body() body: PersonRequestDTO): Promise<any> {
-        return this.service.create(body)
+        try {
+            return this.service.create(body)
+        } catch (error) {
+            throw error
+        }
     }
 }

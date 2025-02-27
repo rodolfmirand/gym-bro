@@ -1,4 +1,4 @@
-import { Controller, Delete, Param, ParseUUIDPipe, UseGuards } from "@nestjs/common";
+import { Controller, Delete, HttpException, HttpStatus, Param, ParseUUIDPipe, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "src/auth/auth.guard";
 import { BodyBuildingDeleteService } from "src/services/exercise/bodybuilding/bodybuilding.delete.service";
 import { CardioDeleteService } from "src/services/exercise/cardio/cardio.delete.service";
@@ -13,6 +13,13 @@ export class ExerciseDeleteController {
     @UseGuards(AuthGuard)
     @Delete(':id')
     public async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<any> {
-        return this.service.delete(id)
+        try {
+            return this.service.delete(id)
+        } catch (error) {
+            if (error instanceof HttpException)
+                throw error
+
+            throw new HttpException('Error deleting exercise.', HttpStatus.INTERNAL_SERVER_ERROR)
+        }
     }
 }
