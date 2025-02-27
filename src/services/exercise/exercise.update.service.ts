@@ -21,14 +21,19 @@ export class ExerciseUpdateService {
 
     public async update(id: string, body: CardioUpdateDTO | BodybuildingUpdateDTO): Promise<any> {
         const cardio = await this.cardioModel.findOne({ where: { id } })
+
         const bodybuilding = await this.bodybuildingModel.findOne({ where: { id } })
+
         if (cardio) {
             await this.cardioUpdateService.update(cardio, body as CardioUpdateDTO)
             return { status: 'Cardio exercise updated successfully' }
-        } else if (bodybuilding) {
+        }
+
+        if (bodybuilding) {
             await this.bodybuildingUpdateService.update(bodybuilding, body as BodybuildingUpdateDTO)
             return { status: 'Bodybuilding exercise updated successfully' }
         }
+        
         throw new NotFoundException('No exercise with this ID was found')
     }
 }

@@ -10,9 +10,10 @@ export class PersonDeleteService {
 
     public async delete(id: string): Promise<any> {
         const result = await this.model.delete(id);
-        if (result.affected === 0) {
+
+        if (result.affected === 0)
             throw new NotFoundException('Person not found')
-        }
+
         return { status: 'Person deleted successfully' }
     }
 }

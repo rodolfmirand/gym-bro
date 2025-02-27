@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { BodyBuildingExercise } from "src/models/bodybuildingexercise.model";
 import { CardioExercise } from "src/models/cardioexercise.model";
@@ -13,11 +13,15 @@ export class ExerciseFindService {
 
     public async find(id: string): Promise<any> {
         const bodybuilding = await this.bodybuildingFindService.findOne({ where: { id } })
+
         if (bodybuilding)
             return bodybuilding
+
         const cardio = await this.cardioFindService.findOne({ where: { id } })
+
         if (cardio)
             return cardio
-        return { status: 'Exercise not found' }
+
+        throw new NotFoundException('Exercise not found')
     }
 }

@@ -16,8 +16,11 @@ export class PersonCreateService {
 
     public async create(body: PersonRequestDTO): Promise<any> {
         body.password = await this.hashPassword.hash(body.password)
+
         const person = await this.model.save(body)
+
         await this.workoutRoutineCreateService.create(person)
+        
         return { status: 'Person created successfully' }
     }
 }

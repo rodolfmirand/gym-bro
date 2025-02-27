@@ -14,8 +14,11 @@ export class PersonUpdateService {
 
     public async update(id: string, body: PersonUpdateDTO): Promise<any> {
         let person = await this.personFindService.find(id)
+
         person = this.model.merge(person, body)
+
         await this.model.save(person)
+
         return { status: 'Person updated successfully' }
     }
 }

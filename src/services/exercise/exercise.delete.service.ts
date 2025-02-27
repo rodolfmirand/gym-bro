@@ -15,10 +15,13 @@ export class ExerciseDeleteService {
         if (await this.bodybuildingModel.findOne({ where: { id } })) {
             await this.bodybuildingModel.delete(id)
             return { status: 'Bodybuilding exercise deleted successfully' }
-        } else if (await this.cardioModel.findOne({ where: { id } })) {
-            await this.cardioModel.delete(id)
-            return { status: 'Cardio exercise deleted sucessfully'}
         }
+
+        if (await this.cardioModel.findOne({ where: { id } })) {
+            await this.cardioModel.delete(id)
+            return { status: 'Cardio exercise deleted sucessfully' }
+        }
+        
         throw new NotFoundException('No exercise with this ID was found')
     }
 }

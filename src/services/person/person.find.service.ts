@@ -10,8 +10,10 @@ export class PersonFindService {
 
     public async find(id: string): Promise<Person> {
         const person = await this.model.findOne({ where: { id }, relations: ['workoutRoutine', 'workoutRoutine.dailyRoutine'] })
+
         if (!person)
             throw new NotFoundException('Person not found')
+        
         return person
     }
 }
