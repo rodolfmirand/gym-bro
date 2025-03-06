@@ -12,6 +12,7 @@ Este projeto foi criado utilizando o framework [NestJS](https://nestjs.com/), co
 ```bash
 npm @nestjs/cli
 npm install @nestjs/typeorm typeorm sqlite3
+npm install pg
 npm install @nestjs/jwt passport-jwt @nestjs/passport passport bcrypt
 npm install --save-dev @types/passport-jwt @types/bcrypt
 npm install class-validator class-transformer
