@@ -18,7 +18,7 @@ export class Person {
     email: string
 
     @Exclude()
-    @Column({ length: 16 })
+    @Column()
     password: string
 
     @Column()
