@@ -31,6 +31,7 @@ export class GeminiService {
             - Evite alimentos ultraprocessados e inclua opções naturais e acessíveis.
             - O plano alimentar deve ser simples e fácil de seguir.
             - No ínicio, deve ser informado quais as calorias estimadas a serem consumidas.
+            - Não informe o nome da refeição, por exemplo "Café da manhã", envie apenas os alimentos.
             - Sua resposta deve ser de apenas uma linha, usando # para separar as refeições e * para separar os alimentos.
             - Exemplo de mensagem: "3500-4000 # alimento 1 (X calorias, Xg proteína, Xg carboidratos, Xg gorduras) * alimento 2 (X calorias, Xg proteína, Xg carboidratos, Xg gorduras) #  alimento 1 (X calorias, Xg proteína, Xg carboidratos, Xg gorduras) * alimento 2 (X calorias, Xg proteína, Xg carboidratos, Xg gorduras)
             
